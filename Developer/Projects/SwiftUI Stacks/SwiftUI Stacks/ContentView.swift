@@ -74,7 +74,24 @@ struct RectangleView: View {
     }
 }
 
+struct PostView: View {
+    
+    var body: some View {
+        
+        VStack(spacing: 50) {
+            ForEach(1..<4) { index in
+            Image(systemName: "fossil.shell.fill")
+                    .font(.largeTitle)
+                    .frame(width: 100, height: 90)
+                    .border(.blue)
+            }
+        }
+    }
+    
+}
+
     #Preview {
         ContentView()
         RectangleView()
+        PostView()
     }

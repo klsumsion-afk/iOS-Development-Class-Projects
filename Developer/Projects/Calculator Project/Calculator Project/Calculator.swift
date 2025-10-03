@@ -12,7 +12,7 @@ class Calculator {
     var displayedString = "0"  // Any time you update this String, it will display on the calculator.
     var lastEnteredOperator: CalculatorInput = .zero
     var runningTotal: Double = 0.0
-    var shouldClear: Bool = true /*when false it allows for multi digit numbers but only before the operator is pressed. when true it will only allow single digits.*/
+    var shouldClear: Bool = true
     
     // Add additional variables here.
     
@@ -48,6 +48,7 @@ class Calculator {
     func number(_ number: Int) {
         if shouldClear {
             displayedString = String(number)
+            shouldClear = false
         } else {
             displayedString += String(number)
         }
@@ -73,17 +74,24 @@ class Calculator {
     }
     
     func multiply() {
-//        lastEnteredOperator = .multiply
-//        runningTotal *= Double(displayedString)!
-//         displayedString = String(runningTotal)
-//        shouldClear = true
+        lastEnteredOperator = .multiply
+        if runningTotal == 0.0 {
+            runningTotal = Double(displayedString)!
+        }
+        runningTotal *= Double(displayedString)!
+         displayedString = String(runningTotal)
+        shouldClear = true
     }
     
     func subtract() {
-//        lastEnteredOperator = .subtract
-//        runningTotal -= Double(displayedString)!
-//         displayedString = String(runningTotal)
-//        shouldClear = true
+        lastEnteredOperator = .subtract
+        if runningTotal == 0.0 {
+            runningTotal = Double(displayedString)!
+        } else {
+            runningTotal -= Double(displayedString)!
+        }
+         displayedString = String(runningTotal)
+        shouldClear = true
     }
     
     func add() {
