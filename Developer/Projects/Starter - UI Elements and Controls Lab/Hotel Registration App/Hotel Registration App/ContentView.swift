@@ -6,6 +6,13 @@
 //
 
 import SwiftUI
+@State private var firstName = ""
+@State private var lastName = ""
+@State private var doorCode = 0
+@State private var numberOfGuests = 0
+@State private var lengthOfStay = 0
+@State private var nonSmoking = true
+@State private var registrationFeedback = 0
 
 struct ContentView: View {
     var body: some View {
@@ -30,7 +37,7 @@ struct HotelRegistrationScreen: View {
                 Text("Mountainland Inn")
                     .font(.custom("Verdana", size: 30))
                     .bold()
-                    .foregroundStyle(.background)
+                    .foregroundStyle(Color.background)
                     .padding()
                     .background {
                         RoundedRectangle(cornerRadius: 10)

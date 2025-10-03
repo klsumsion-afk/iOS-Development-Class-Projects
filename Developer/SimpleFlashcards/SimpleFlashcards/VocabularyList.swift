@@ -274,6 +274,18 @@ struct Vocab {
             definition: "Simplified syntax that makes code more readable without adding or changing functionality.",
             synonyms: ["Convenience, Simplified Syntax"],
             notes: ["Examples include $0 in closures or optional unwrapping."],
+        ),
+        Vocab(
+            word: "Nil Coalescing",
+            definition: "A shorthand for providing a default value when an optional is 'Nil'.",
+            synonyms: ["Fallback, Default Value"],
+            notes: ["Uses ?? in Swift"],
+        ),
+        Vocab(
+            word: "Inference",
+            definition: "The automatic determination of data types by the compiler.",
+            synonyms: ["Type Determination"],
+            notes: ["Swift supports type inference to simplify code and improve readability."],
         )
     ]
 }
