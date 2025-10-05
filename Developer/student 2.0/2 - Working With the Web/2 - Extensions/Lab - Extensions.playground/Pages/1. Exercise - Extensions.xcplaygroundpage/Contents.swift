@@ -4,10 +4,11 @@
  Define an extension to `Character` that includes a function `isVowel()`. The function returns `true` if the character is a vowel (a,e,i,o,u), and `false` otherwise. Be sure to properly handle uppercase and lowercase characters.
  */
 extension Character {
-    func isVowel(_ character: String) -> Bool {
-        if character.lowercased() == "a,e,i,o,u" {
+    func isVowel() -> Bool {
+        switch self.lowercased() {
+        case "a","e","i","o","u":
             return true
-        } else {
+        default:
             return false
         }
     }
@@ -17,20 +18,38 @@ extension Character {
 let myVowel: Character = "a"
 let myConsonant: Character = "K"
 
-Character.isVowel(myVowel)
-Character.isVowel(myConsonant)
-//Okay, so maybe I forgot how to do extensions, but how do I set Character extension in a way that works and doesn't return _?
-//Extensions looked a lot easier in the book. How does syntax even work for these things?
+
+print(myVowel.isVowel())
+print(myConsonant.isVowel())
 //:  Create a `Rectangle` struct with two variable properties, `length` and `width`, both of type `Double`. Below the definition, write an extension to `Rectangle` that includes a function, `halved()`. This function returns a new `Rectangle` instance with half the length and half the width of the original rectangle.
+struct Rectangle {
+    var length: Double
+    var width: Double
+}
 
+extension Rectangle {
+    func halved() -> Rectangle {
+        var newRectangle = Rectangle(length: length/2, width: width/2)
+        return newRectangle
+    }
+    mutating func half() {
+        length /= 2
+        width /= 2
+    }
+}
 
+var myRectangle = Rectangle(length: 10.0, width: 5.0)
+print(myRectangle)
+var mySmallerRectangle = myRectangle.halved()
+print(mySmallerRectangle)
 /*:
  Within the existing `Rectangle` extension, add a new mutating function, `half()`, which updates the original rectangle to have half the length and half the width. Use the `halved()` function as part of the implementation for `half()`.
  
  Below, create a variable `Rectangle` called `myRectangle`, and set its length to 10 and its width to 5. Create a second instance, `mySmallerRectangle`, that's the result of calling `halved()` on `myRectangle`. Then update the values of `myRectangle` by calling `half()` on itself. Print each of the instances.
  */
 
-
+myRectangle.half()
+print(myRectangle)
 /*:
 page 1 of 2  |  [Next: App Exercise - Workout Extensions](@next)
  */

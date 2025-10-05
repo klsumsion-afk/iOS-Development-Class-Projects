@@ -55,11 +55,16 @@ class Calculator {
     }
     
     func backspace() {
-        
+        lastEnteredOperator = .backspace
+        displayedString = "0"
     }
     
     func clear() {
-        
+        lastEnteredOperator = .clear
+        runningTotal = 0.0
+        displayedString = "0"
+        shouldClear = true
+        lastEnteredOperator = .zero
     }
     
     func percent() {
@@ -67,13 +72,18 @@ class Calculator {
     }
     
     func divide() {
-//        lastEnteredOperator = .divide
-//        runningTotal /= Double(displayedString)!
-//         displayedString = String(runningTotal)
-//        shouldClear = true
+//        Need to fix so that the displayedString is not automatically divided by itself
+        lastEnteredOperator = .divide
+        if runningTotal == 0.0 {
+            runningTotal = Double(displayedString)!
+        }
+        runningTotal /= Double(displayedString)!
+         displayedString = String(runningTotal)
+        shouldClear = true
     }
     
     func multiply() {
+//        Need to fix so that the displayedString is not automatically multiplied by itself
         lastEnteredOperator = .multiply
         if runningTotal == 0.0 {
             runningTotal = Double(displayedString)!
@@ -104,11 +114,24 @@ class Calculator {
     }
     
     func invertSign() {
-        
+//        lastEnteredOperator = .invertSign
+//        if runningTotal == Double(displayedString)! {
+//            runningTotal -= Double(displayedString)!
+//        } else {
+//            runningTotal += Double(displayedString)!
+//        }
+//        displayedString = String(runningTotal)
+//        shouldClear = true
     }
     
     func decimal() {
-        
+        lastEnteredOperator = .decimal
+        if shouldClear {
+            displayedString = "."
+            shouldClear = false
+        } else {
+            displayedString += "."
+        }
     }
     
     func equal() {
