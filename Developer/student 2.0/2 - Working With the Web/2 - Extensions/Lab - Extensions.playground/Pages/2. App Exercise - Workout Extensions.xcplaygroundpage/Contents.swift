@@ -10,17 +10,16 @@ struct Workout {
     var time: Double
     var averageHR: Int
 }
-extension Workout :CustomStringConvertible {
+extension Workout: CustomStringConvertible {
     var description: String {
-        <#code#>
-    } /*This is what the suggestion offered as a fix*/
-//    How do I write this section to make it work correctly?
+        "Distance: \(distance) Time: \(time) Average Heart Rate: \(averageHR)"
+    }
 }
 
 
 //:  Now create another extension for `Workout` and add a property `speed` of type `Double`. It should be a computed property that returns the average meters per second traveled during the workout.
 extension Workout {
-    func speed(distance: Double, time: Double) -> Double {
+    var speed: Double {
         return distance / time
     }
     
@@ -36,6 +35,7 @@ extension Workout {
 let myWorkout = Workout(distance: 5.0, time: 10.0, averageHR: 100)
 print(myWorkout)
 print(myWorkout.harderWorkout())
+print(myWorkout.speed)
 /*:
  _Copyright © 2023 Apple Inc._
 

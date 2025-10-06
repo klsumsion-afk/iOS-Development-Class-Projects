@@ -27,7 +27,8 @@ struct HotelRegistrationScreen: View {
     @State private var numberOfGuests = "1"
     @State private var lengthOfStay = 0
     @State private var nonSmoking = true
-    @State private var registrationFeedback = 0...5
+    @State private var registrationFeedback = 0.0
+    @State private var submitted = false
     
     var body: some View {
         VStack {
@@ -103,21 +104,33 @@ struct HotelRegistrationScreen: View {
             
             Toggle("NonSmoking", isOn: $nonSmoking)
            
-            Button(action: submitted) {
+            Button(action: submit) {
                 Text("Submit")
             }
             
         }
+        HStack {
+            if submitted == true {
+                Text("Thank you for booking with us!")
+                
+                Slider(value: $registrationFeedback)
+                
+                HStack() {
+                    ForEach(1..<6) { index in
+                      Image(systemName: "star")
+                            .offset(x: -145 , y: 25)
+                    }
+                }
+            }
+        }
     }
     
-    func submitted() {
-        var _: Bool
+    func submit() {
+        submitted.toggle()
     }
-//    This doesn't seem right, but i'm not sure how else to do it based on the instructions.
+
     
-    if submitted == true {
-//        I need to fix the func first to get this to work, I believe.
-    }
+
     
 }
 

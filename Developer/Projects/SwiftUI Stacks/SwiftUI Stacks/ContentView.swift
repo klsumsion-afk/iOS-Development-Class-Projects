@@ -80,14 +80,14 @@ struct PostView: View {
         
         VStack(spacing: 50) {
             ForEach(1..<4) { index in
-            Image(systemName: "fossil.shell.fill")
+                Image(systemName: "fossil.shell.fill")
                     .font(.largeTitle)
                     .frame(width: 100, height: 90)
                     .border(.blue)
+                
             }
         }
     }
-    
 }
 
     #Preview {

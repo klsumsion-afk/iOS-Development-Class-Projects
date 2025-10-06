@@ -286,6 +286,12 @@ struct Vocab {
             definition: "The automatic determination of data types by the compiler.",
             synonyms: ["Type Determination"],
             notes: ["Swift supports type inference to simplify code and improve readability."],
+        ),
+        Vocab(
+            word: "Capturing",
+            definition: "A closure's Ability to 'capture' values or references from its surrounding context.",
+            synonyms: ["Retain, Reference Capture"],
+            notes: ["Swift closures can capture variables to maintain their state."],
         )
     ]
 }
