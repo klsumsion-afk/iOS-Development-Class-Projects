@@ -125,6 +125,7 @@ class Calculator {
     }
     
     func decimal() {
+//        I was thinking that "." is similiar to pressing a number, but it didn't turn out the way I wanted. I need it to be able to add onto the string in the same manner as "number".
         lastEnteredOperator = .decimal
         if shouldClear {
             displayedString = "."
@@ -135,7 +136,23 @@ class Calculator {
     }
     
     func equal() {
-        
+        lastEnteredOperator = .equal
+//        How do I adjust the operator based on the lastEnteredOperator before .equal?
+        runningTotal ?= Double(displayedString)!
+         displayedString = String(runningTotal)
+        shouldClear = true
+//        switch lastEnteredOperator {
+//        case .divide:
+//            divide()
+//        case .multiply:
+//            multiply()
+//        case .subtract:
+//            subtract()
+//        case .add:
+//            add()
+//        default:
+//            print("Error")
+//        }
     }
 }
 

@@ -11,7 +11,10 @@ struct Workout {
     var averageHR: Int
 }
 extension Workout :CustomStringConvertible {
-    
+    var description: String {
+        <#code#>
+    } /*This is what the suggestion offered as a fix*/
+//    How do I write this section to make it work correctly?
 }
 
 
