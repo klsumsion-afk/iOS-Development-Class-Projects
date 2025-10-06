@@ -72,23 +72,23 @@ class Calculator {
     }
     
     func divide() {
-//        Need to fix so that the displayedString is not automatically divided by itself
         lastEnteredOperator = .divide
         if runningTotal == 0.0 {
             runningTotal = Double(displayedString)!
+        } else {
+            runningTotal /= Double(displayedString)!
         }
-        runningTotal /= Double(displayedString)!
          displayedString = String(runningTotal)
         shouldClear = true
     }
     
     func multiply() {
-//        Need to fix so that the displayedString is not automatically multiplied by itself
         lastEnteredOperator = .multiply
         if runningTotal == 0.0 {
             runningTotal = Double(displayedString)!
+        } else {
+            runningTotal *= Double(displayedString)!
         }
-        runningTotal *= Double(displayedString)!
          displayedString = String(runningTotal)
         shouldClear = true
     }
@@ -106,53 +106,51 @@ class Calculator {
     
     func add() {
         lastEnteredOperator = .add
-        runningTotal += Double(displayedString)!
+        if runningTotal == 0.0 {
+            runningTotal = Double(displayedString)!
+        } else {
+            runningTotal += Double(displayedString)!
+        }
          displayedString = String(runningTotal)
         shouldClear = true
-        
         
     }
     
     func invertSign() {
-//        lastEnteredOperator = .invertSign
-//        if runningTotal == Double(displayedString)! {
-//            runningTotal -= Double(displayedString)!
-//        } else {
-//            runningTotal += Double(displayedString)!
-//        }
-//        displayedString = String(runningTotal)
-//        shouldClear = true
+        if displayedString.hasPrefix("-") {
+            displayedString.removeAll(where: { $0 == "-" })
+        } else {
+            displayedString.insert("-", at: displayedString.startIndex)
+        }
+        shouldClear = true
     }
     
     func decimal() {
-//        I was thinking that "." is similiar to pressing a number, but it didn't turn out the way I wanted. I need it to be able to add onto the string in the same manner as "number".
-        lastEnteredOperator = .decimal
         if shouldClear {
             displayedString = "."
             shouldClear = false
-        } else {
+        } else if !displayedString.contains("."){
             displayedString += "."
         }
     }
     
     func equal() {
+        switch lastEnteredOperator {
+        case .divide:
+            divide()
+        case .multiply:
+            multiply()
+        case .subtract:
+            subtract()
+        case .add:
+            add()
+        default:
+            print("Error")
+        }
         lastEnteredOperator = .equal
-//        How do I adjust the operator based on the lastEnteredOperator before .equal?
-        runningTotal ?= Double(displayedString)!
-         displayedString = String(runningTotal)
+        runningTotal = Double(displayedString)!
+        displayedString = String(runningTotal)
         shouldClear = true
-//        switch lastEnteredOperator {
-//        case .divide:
-//            divide()
-//        case .multiply:
-//            multiply()
-//        case .subtract:
-//            subtract()
-//        case .add:
-//            add()
-//        default:
-//            print("Error")
-//        }
     }
 }
 
