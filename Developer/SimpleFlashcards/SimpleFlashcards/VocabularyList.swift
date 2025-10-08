@@ -292,6 +292,18 @@ struct Vocab {
             definition: "A closure's Ability to 'capture' values or references from its surrounding context.",
             synonyms: ["Retain, Reference Capture"],
             notes: ["Swift closures can capture variables to maintain their state."],
-        )
+        ),
+        Vocab(
+            word: "Abstraction",
+            definition: "Simplifying complex code by hiding it behind a simple interface. This allows a user to only focus on what is needed.",
+            synonyms: ["Simplify, Generalize, Encapsulation"],
+            notes: ["Functions and classes/structs are great tools for abstaction."],
+             ),
+        Vocab(
+            word: "Encapsulation",
+            definition: "The bundling of data and methods that operate on data within a single unit.",
+            synonyms: ["Data Hiding, Protection"],
+            notes: ["Achieved using control in Swift ('Private','Public')."],
+             )
     ]
 }
