@@ -304,6 +304,12 @@ struct Vocab {
             definition: "The bundling of data and methods that operate on data within a single unit.",
             synonyms: ["Data Hiding, Protection"],
             notes: ["Achieved using control in Swift ('Private','Public')."],
+             ),
+        Vocab(
+            word: "Inheritance",
+            definition: "A mechanism where one class derives properties and behaviors from another class.",
+            synonyms: ["Subclassing"],
+            notes: ["Supports code reuse & hierarchy."],
              )
     ]
 }
