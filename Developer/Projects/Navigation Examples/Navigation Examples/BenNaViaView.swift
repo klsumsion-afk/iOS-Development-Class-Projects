@@ -10,6 +10,8 @@ import SwiftUI
 struct BenNaViaView: View {
     @State private var isPresentingBen = false
     @State private var isPresentingNaVia = false
+    @State private var hasPresentedBen = false
+    @State private var hasPresentedNaVia = false
     
     var body: some View {
         NavigationStack() {
@@ -26,14 +28,22 @@ struct BenNaViaView: View {
                                 Button("Ben") {
                                     isPresentingBen = true
                                 }
+                                if hasPresentedBen {
+                                    Image(systemName: "checkmark.seal.fill")
+                                }
                                 Spacer()
                                 Button("NaVia") {
                                     isPresentingNaVia = true
                                     }
+                                if hasPresentedNaVia {
+                                    Image(systemName: "checkmark.seal.fill")
+                                }
                             }
                         }
                     }
-                    .sheet(isPresented: $isPresentingBen) {
+                    .sheet(isPresented: $isPresentingBen, onDismiss: {
+                        hasPresentedBen = true
+                    }) {
                         NavigationStack {
                             Text("Role: Only Brother")
                                 .font(.custom("Typewriter", size: 35))
@@ -48,7 +58,9 @@ struct BenNaViaView: View {
                     }
                     .padding()
                 
-                    .sheet(isPresented: $isPresentingNaVia) {
+                    .sheet(isPresented: $isPresentingNaVia, onDismiss: {
+                        hasPresentedNaVia = true
+                    }) {
                         NavigationStack {
                             Text("Role: Ben's Wife")
                                 .font(.custom("Typewriter", size: 35))

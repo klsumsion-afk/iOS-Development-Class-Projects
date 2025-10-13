@@ -1,5 +1,5 @@
 //
-//  TabView.swift
+//  EmmaView.swift
 //  Navigation Examples
 //
 //  Created by Karigan Sumsion on 10/9/25.
@@ -7,37 +7,45 @@
 
 import SwiftUI
 
-struct TabaView: View {
-    @State private var isPresentingTab = false
+struct EmmaView: View {
+    @State private var isPresentingEmma = false
+    @State private var hasPresentedEmma = false
     
     var body: some View {
         NavigationStack() {
             VStack {
-                Image("TabPhoto")
+                Image("EmmaPhoto")
                     .resizable()
                     .scaledToFill()
                 
-                    .navigationTitle("Tabitha")
+                    .navigationTitle("Emma")
                 
                     .toolbar {
                         ToolbarItem(placement: .bottomBar) {
-                            Button("Tab") {
-                                isPresentingTab = true
+                            HStack {
+                                Button("Emma") {
+                                    isPresentingEmma = true
+                                }
+                                if hasPresentedEmma {
+                                    Image(systemName: "checkmark")
+                                }
                             }
                         }
                     }
-                        .sheet(isPresented: $isPresentingTab) {
+                    .sheet(isPresented: $isPresentingEmma, onDismiss: {
+                        hasPresentedEmma = true
+                    }) {
                             NavigationStack {
-                                Text("Role: Third Sister")
+                                Text("Role: Fourth Sister")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Current Residence: Florida")
+                                Text("Current Residence: Utah, we share a house")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Obsession: Photography, Law, Skin Care, Beauty, Hair, Beach, Swimming, Sun, Board Games, K-Pop Boy Bands")
+                                Text("Obsession: Gaming, Stories, Writing, Design, TV, Korea, Culture, Seventeen, Jumpsuits, Art, Doordash")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Detests: Video Games, Losing, Cold, Dry, Dark, Snow, Men, Headstrong People, Mornings")
+                                Text("Favorite Color: Royal Blue")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
                             }
@@ -49,6 +57,6 @@ struct TabaView: View {
     }
 
 #Preview {
-    TabaView()
+    EmmaView()
 }
 

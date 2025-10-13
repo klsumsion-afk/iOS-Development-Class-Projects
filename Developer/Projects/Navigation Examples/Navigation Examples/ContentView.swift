@@ -10,6 +10,8 @@ import SwiftUI
 struct ParentView: View {
     @State private var isPresentingKen = false
     @State private var isPresentingLisa = false
+    @State private var hasPresentedKen = false
+    @State private var hasPresentedLisa = false
     
     var body: some View {
         NavigationStack() {
@@ -26,18 +28,22 @@ struct ParentView: View {
                                 Button("Ken") {
                                     isPresentingKen = true
                                 }
+                                if hasPresentedKen {
+                                    Image(systemName: "checkmark.diamond.fill")
+                                }
                                 Spacer()
                                 Button("Lisa") {
                                     isPresentingLisa = true
                                     }
-                                if isPresentingLisa == true {
-                                    Image(systemName: "checkmark.diamond")
-//                                    Save the info that the button was pressed and that the image should remain after closing the .sheet
+                                if hasPresentedLisa {
+                                    Image(systemName: "checkmark.diamond.fill")
                                 }
                             }
                         }
                     }
-                    .sheet(isPresented: $isPresentingKen) {
+                    .sheet(isPresented: $isPresentingKen, onDismiss: {
+                        hasPresentedKen = true
+                    }) {
                         NavigationStack {
                             Text("Role: Father")
                                 .font(.custom("Typewriter", size: 35))
@@ -58,7 +64,9 @@ struct ParentView: View {
                     }
                     .padding()
                 
-                    .sheet(isPresented: $isPresentingLisa) {
+                    .sheet(isPresented: $isPresentingLisa, onDismiss: {
+                        hasPresentedLisa = true
+                    }) {
                         NavigationStack {
                             Text("Role: Mother")
                                 .font(.custom("Typewriter", size: 35))

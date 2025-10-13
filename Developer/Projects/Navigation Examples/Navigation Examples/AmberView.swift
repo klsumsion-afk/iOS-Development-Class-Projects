@@ -1,5 +1,5 @@
 //
-//  EmmaView.swift
+//  AmberView.swift
 //  Navigation Examples
 //
 //  Created by Karigan Sumsion on 10/9/25.
@@ -7,40 +7,48 @@
 
 import SwiftUI
 
-struct EmmaView: View {
-    @State private var isPresentingEmma = false
+struct AmberView: View {
+    @State private var isPresentingAmber = false
+    @State private var hasPresentedAmber = false
     
     var body: some View {
         NavigationStack() {
             VStack {
-                Image("EmmaPhoto")
+                Image("AmberPhoto")
                     .resizable()
                     .scaledToFill()
                 
-                    .navigationTitle("Emma")
+                    .navigationTitle("Amber")
                 
                     .toolbar {
                         ToolbarItem(placement: .bottomBar) {
-                            Button("Emma") {
-                                isPresentingEmma = true
+                            HStack {
+                                Button("Amber") {
+                                    isPresentingAmber = true
+                                }
+                                if hasPresentedAmber {
+                                    Image(systemName: "checkmark.square.fill")
+                                }
                             }
                         }
                     }
-                        .sheet(isPresented: $isPresentingEmma) {
+                    .sheet(isPresented: $isPresentingAmber, onDismiss: {
+                        hasPresentedAmber = true
+                    }) {
                             NavigationStack {
-                                Text("Role: Fourth Sister")
+                                Text("Role: Eldest Sister")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Current Residence: Utah, we share a house")
+                                Text("Current Residence: Florida")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Obsession: Gaming, Stories, Writing, Design, TV, Korea, Culture, Seventeen, Jumpsuits, Art, Doordash")
+                                Text("Obsession: Gaming, Star Wars, Star Trek, Sports, Geneology, Being Healthy")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Favorite Color: Royal Blue")
+                                Text("Favorite Color: Blue")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Favorite Animal: Dragons")
+                                Text("Chinese Zodiac: Dragon")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
                             }
@@ -52,6 +60,6 @@ struct EmmaView: View {
     }
 
 #Preview {
-    EmmaView()
+    AmberView()
 }
 

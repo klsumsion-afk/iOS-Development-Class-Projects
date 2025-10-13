@@ -10,6 +10,8 @@ import SwiftUI
 struct KelliCamView: View {
     @State private var isPresentingKelli = false
     @State private var isPresentingCameron = false
+    @State private var hasPresentedKelli = false
+    @State private var hasPresentedCameron = false
     
     var body: some View {
         NavigationStack() {
@@ -26,14 +28,22 @@ struct KelliCamView: View {
                                 Button("Cam") {
                                     isPresentingCameron = true
                                 }
+                                if hasPresentedCameron {
+                                    Image(systemName: "checkmark.circle.dotted")
+                                }
                                 Spacer()
                                 Button("Kelli") {
                                     isPresentingKelli = true
                                     }
+                                if hasPresentedKelli {
+                                    Image(systemName: "checkmark.circle.dotted")
+                                }
                             }
                         }
                     }
-                    .sheet(isPresented: $isPresentingCameron) {
+                    .sheet(isPresented: $isPresentingCameron, onDismiss: {
+                        hasPresentedCameron = true
+                    }) {
                         NavigationStack {
                             Text("Role: Kelli's Husband")
                                 .font(.custom("Typewriter", size: 35))
@@ -48,7 +58,9 @@ struct KelliCamView: View {
                     }
                     .padding()
                 
-                    .sheet(isPresented: $isPresentingKelli) {
+                    .sheet(isPresented: $isPresentingKelli, onDismiss: {
+                        hasPresentedKelli = true
+                    }) {
                         NavigationStack {
                             Text("Role: Second Eldest Sister")
                                 .font(.custom("Typewriter", size: 35))

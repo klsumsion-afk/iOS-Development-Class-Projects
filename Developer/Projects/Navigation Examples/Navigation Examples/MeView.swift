@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MeView: View {
     @State private var isPresentingMe = false
+    @State private var hasPresentedMe = false
     
     var body: some View {
         NavigationStack() {
@@ -21,12 +22,19 @@ struct MeView: View {
                 
                     .toolbar {
                         ToolbarItem(placement: .bottomBar) {
-                            Button("Me") {
-                                isPresentingMe = true
+                            HStack {
+                                Button("Me") {
+                                    isPresentingMe = true
+                                }
+                                if hasPresentedMe {
+                                    Image(systemName: "fireworks")
+                                }
                             }
                         }
                     }
-                        .sheet(isPresented: $isPresentingMe) {
+                    .sheet(isPresented: $isPresentingMe, onDismiss: {
+                        hasPresentedMe = true
+                    }) {
                             NavigationStack {
                                 Text("Role: Youngest")
                                     .font(.custom("Typewriter", size: 35))
