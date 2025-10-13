@@ -310,6 +310,14 @@ struct Vocab {
             definition: "A mechanism where one class derives properties and behaviors from another class.",
             synonyms: ["Subclassing"],
             notes: ["Supports code reuse & hierarchy."],
+             ),
+        Vocab(
+            word: "Recursion",
+            definition: "A function calling itself to repeat its own code.",
+            notes: ["Used in allgorithms like factorial calculation."],
+             ),
+        Vocab(
+            word: "",
              )
     ]
 }
