@@ -29,7 +29,7 @@ struct MyRecipesScreen: View {
                 }
             }
             .sheet(isPresented: $showingAddRecipe) {
-                AddRecipeSheet(recipes)
+                AddRecipeSheet()
             }
         }
     }

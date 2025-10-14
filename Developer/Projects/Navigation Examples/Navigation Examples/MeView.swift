@@ -42,7 +42,7 @@ struct MeView: View {
                                 Text("Current Residence: Utah")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
-                                Text("Obsession: Gaming, Stories, YouTube, Random Facts, Animals, Dragons, Music, Learning, Spending Time with Family, Comfy Clothes, Collecting Art (I'll Never Mount")
+                                Text("Obsession: Gaming, Stories, YouTube, Random Facts, Animals, Dragons, Music, Learning, Spending Time with Family, Comfy Clothes, Collecting Art")
                                     .font(.custom("Typewriter", size: 35))
                                     .padding()
                                 Text("Favorite Color: Green")

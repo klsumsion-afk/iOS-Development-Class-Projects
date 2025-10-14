@@ -13,6 +13,11 @@ struct Navigation_ExamplesApp: App {
         WindowGroup {
             ParentView()
             AmberView()
+            KelliCamView()
+            TabaView()
+            BenNaViaView()
+            EmmaView()
+            MeView()
         }
     }
 }
