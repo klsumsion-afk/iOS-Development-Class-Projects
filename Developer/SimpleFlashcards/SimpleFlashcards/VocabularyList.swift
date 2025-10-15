@@ -317,7 +317,10 @@ struct Vocab {
             notes: ["Used in allgorithms like factorial calculation."],
              ),
         Vocab(
-            word: "",
+            word: "Algorithm",
+            definition: "A set of steps or instructions that solve a problem or perform a task.",
+            synonyms: ["Procedure, Formula, Process"],
+            notes: ["In coding, algorithms are the logic behind how a program makes decisions or processes data."],
              )
     ]
 }

@@ -35,7 +35,7 @@ struct MultipleQuestionSubview: View {
                 ToolbarItem(placement: .bottomBar) {
                     HStack {
                         Button("Next", action: { })
-//                        Will have navigation link
+                        //                        Will have navigation link
                     }
                 }
             }

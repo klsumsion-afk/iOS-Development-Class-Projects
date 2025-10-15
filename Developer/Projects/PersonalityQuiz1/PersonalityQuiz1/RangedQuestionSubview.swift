@@ -8,30 +8,45 @@
 import SwiftUI
 //Slider
 struct RangedQuestionSubview: View {
-    @State private var sliderValue = 0.0
+//    @Environment() private var quizManager
+    @State private var sliderValue = 1.0
+    let minValue = 1.0
+    let maxValue = 5.0
+    let stepValue = 1.0
     
     var body: some View {
         NavigationStack {
             VStack {
                 Text("Where do cats rank?")
-                Text("1 being 'the worst' & 5 being 'the best'")
-                Slider(value: $sliderValue)
-                Text("1  ~  2  ~  3  ~  4  ~  5")
-                    .font(.custom("Impact", size: 50))
-                    .foregroundStyle(Color.teal)
+                Slider(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
+                } minimumValueLabel: {
+                    Text("Worst: \(Int(minValue))")
+                } maximumValueLabel: {
+                    Text("Best: \(Int(maxValue))")
+                }
+                .padding(.horizontal)
+                
+                Stepper(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
+                    Text("Ranking: \(Int(sliderValue))")
+                }
             }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    HStack {
-                        Button("Next", action: { })
-//                        Will have navigation link
-                    }
+            //                Text("1  ~  2  ~  3  ~  4  ~  5")
+            //                    .font(.custom("Impact", size: 50))
+            //                    .foregroundStyle(Color.teal)
+        }
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                HStack {
+                    Button("Next", action: { })
+                    //                        Will have navigation link
                 }
             }
         }
     }
 }
 
+
 #Preview {
     RangedQuestionSubview()
 }
+

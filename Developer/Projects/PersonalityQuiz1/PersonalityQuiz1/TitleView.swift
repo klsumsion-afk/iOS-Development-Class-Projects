@@ -12,7 +12,7 @@ struct TitleView: View {
         VStack {
             Image(systemName: "moon.stars")
             Button("Begin", action: { })
-// Karigan - Will add NavigationLink later 
+            // Karigan - Will add NavigationLink later
         }
         .padding()
     }

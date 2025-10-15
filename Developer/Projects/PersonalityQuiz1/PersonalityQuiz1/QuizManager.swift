@@ -13,7 +13,9 @@ struct Question {
     var answers: [Answer]
 }
 enum ResponseType {
-    case single, multiple, ranged
+    case single
+    case multiple
+    case ranged
 }
 
 struct Answer {
@@ -24,8 +26,9 @@ enum SpiritType {
     case kitsune, unicorn, sylph, banshee, dragon
 }
 
-class QuizManager {
+@Observable class QuizManager {
     let currentQuestioni: Int = 0
+    var selectedAnswers: [Answer] = [ ]
     let questionList: [Question] = [
         Question(
             text: "What is your season?",
@@ -53,13 +56,16 @@ class QuizManager {
             text: "Where do Cats rank?",
             type: .ranged,
             answers: [
-                Answer(text: "1", type: .kitsune),
-                Answer(text: "2", type: .unicorn),
-                Answer(text: "3", type: .sylph),
-                Answer(text: "4", type: .dragon),
-                Answer(text: "5", type: .banshee)
+                Answer(text: "Ranking: \(Int(1.0))", type: .kitsune),
+                Answer(text: "Ranking: \(Int(2.0))", type: .unicorn),
+                Answer(text: "Ranking: \(Int(3.0))", type: .sylph),
+                Answer(text: "Ranking: \(Int(4.0))", type: .dragon),
+                Answer(text: "Ranking: \(Int(5.0))", type: .banshee)
             ]
         )
     ]
-    var selectedAnswers: [SpiritType] = [ ]
+    
+    func selectAnswer(_ answer: Answer) {
+        selectedAnswers.append(answer)
+    }
 }

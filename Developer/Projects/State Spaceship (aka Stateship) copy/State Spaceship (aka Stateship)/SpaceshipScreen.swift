@@ -38,7 +38,7 @@ struct SpaceshipScreen: View {
         }
         .environment(computer)
         .padding()
-    }
+    } 
 }
 
 struct HelmStation: View {

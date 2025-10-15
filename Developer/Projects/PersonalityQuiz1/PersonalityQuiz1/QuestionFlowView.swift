@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct QuestionFlowView: View {
+    @State private var quizManager = QuizManager()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+//            Do custom navigation like previous assigment
+                SingleQuestionSubview()
+            RangedQuestionSubview()
+            MultipleQuestionSubview()
+        }
+        .environment(quizManager)
     }
 }
 
