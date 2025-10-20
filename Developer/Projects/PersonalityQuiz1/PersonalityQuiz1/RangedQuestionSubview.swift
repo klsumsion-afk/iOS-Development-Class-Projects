@@ -8,14 +8,14 @@
 import SwiftUI
 //Slider
 struct RangedQuestionSubview: View {
-//    @Environment() private var quizManager
+    @Environment(QuizManager.self) private var quizManager
     @State private var sliderValue = 1.0
     let minValue = 1.0
     let maxValue = 5.0
     let stepValue = 1.0
     
     var body: some View {
-        NavigationStack {
+    
             VStack {
                 Text("Where do cats rank?")
                 Slider(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
@@ -33,20 +33,19 @@ struct RangedQuestionSubview: View {
             //                Text("1  ~  2  ~  3  ~  4  ~  5")
             //                    .font(.custom("Impact", size: 50))
             //                    .foregroundStyle(Color.teal)
-        }
-        .toolbar {
-            ToolbarItem(placement: .bottomBar) {
-                HStack {
-                    Button("Next", action: { })
-                    //                        Will have navigation link
-                }
-            }
-        }
+        
+//        .toolbar {
+//            ToolbarItem(placement: .bottomBar) {
+//                HStack {
+//                    NavigationLink("Next") {
+//                        QuestionFlowView()
+//                    }
+//                }
+//            }
+//        }
     }
 }
 
 
-#Preview {
-    RangedQuestionSubview()
-}
+
 

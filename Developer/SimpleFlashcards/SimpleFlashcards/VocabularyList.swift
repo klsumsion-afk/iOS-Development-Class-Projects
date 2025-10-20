@@ -321,6 +321,12 @@ struct Vocab {
             definition: "A set of steps or instructions that solve a problem or perform a task.",
             synonyms: ["Procedure, Formula, Process"],
             notes: ["In coding, algorithms are the logic behind how a program makes decisions or processes data."],
-             )
+             ),
+        Vocab(
+            word: "Stack Trace",
+            definition: "A report that shows the sequence of function calls leading to an error.",
+            synonyms: ["Call History, Debugging Tool"],
+            notes: ["Useful for finding errors, ESP. User submitted ones."],
+        )
     ]
 }

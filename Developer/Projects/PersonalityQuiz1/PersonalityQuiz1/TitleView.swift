@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct TitleView: View {
+    @State var quizManager = QuizManager()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "moon.stars")
-            Button("Begin", action: { })
-            // Karigan - Will add NavigationLink later
+        NavigationStack {
+            VStack {
+                Image(systemName: "moon.stars")
+                NavigationLink("Begin") {
+                    QuestionFlowView(question: quizManager.questionList.first!)
+                }
+                
+            }
+            .padding()
         }
-        .padding()
+        .environment(quizManager)
     }
 }
 

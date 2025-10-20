@@ -9,9 +9,10 @@ import SwiftUI
 //Picker
 
 struct SingleQuestionSubview: View {
+    @Environment(QuizManager.self) private var quizManager
     @State private var pickerValue = "option"
     var body: some View {
-        NavigationStack {
+
             Text("What is your season?")
             Picker("Choose your season", selection: $pickerValue) {
                 ForEach(["Spring", "Summer", "Fall", "Winter", "All of Them"], id: \.self) {
@@ -21,18 +22,16 @@ struct SingleQuestionSubview: View {
                         .tag(item)
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    HStack {
-                        Button("Next", action: {})
-                        //                    Navigation Link will go here
-                    }
-                }
-            }
-        }
+//            .toolbar {
+//                ToolbarItem(placement: .bottomBar) {
+//                    HStack {
+//                        NavigationLink("Next") {
+//                            QuestionFlowView()
+//                        }
+//                    }
+//                }
+//            }
+        
     }
 }
 
-#Preview {
-    SingleQuestionSubview()
-}

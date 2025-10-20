@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct Question {
+struct Question: Equatable {
+    static func == (lhs: Question, rhs: Question) -> Bool {
+        lhs.text == rhs.text
+    }
+    
     var text: String
     var type: ResponseType
     var answers: [Answer]
@@ -27,7 +31,10 @@ enum SpiritType {
 }
 
 @Observable class QuizManager {
-    let currentQuestioni: Int = 0
+    var currentQuestionIndex: Int = 0
+    var currentQuestion: Question {
+        return questionList[currentQuestionIndex]
+    }
     var selectedAnswers: [Answer] = [ ]
     let questionList: [Question] = [
         Question(

@@ -8,19 +8,33 @@
 import SwiftUI
 
 struct QuestionFlowView: View {
-    @State private var quizManager = QuizManager()
-    
-    var body: some View {
-        NavigationStack {
-//            Do custom navigation like previous assigment
-                SingleQuestionSubview()
-            RangedQuestionSubview()
-            MultipleQuestionSubview()
-        }
-        .environment(quizManager)
+    @Environment(QuizManager.self) private var quizManager
+    let question: Question
+        var body: some View {
+            VStack {
+                switch question.type {
+                case .single:
+                    SingleQuestionSubview()
+                case .ranged:
+                    RangedQuestionSubview()
+                case .multiple:
+                    MultipleQuestionSubview()
+                }
+            }
+            .onAppear {
+                quizManager.currentQuestionIndex = quizManager.questionList.firstIndex(of: question) ?? 0
+            }
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink("Next") {
+                        QuestionFlowView(question: quizManager.questionList[ quizManager.currentQuestionIndex + 1])
+//                        Add a back button
+                    }
+                }
+            }
     }
 }
 
 #Preview {
-    QuestionFlowView()
+    
 }
