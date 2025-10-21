@@ -327,6 +327,12 @@ struct Vocab {
             definition: "A report that shows the sequence of function calls leading to an error.",
             synonyms: ["Call History, Debugging Tool"],
             notes: ["Useful for finding errors, ESP. User submitted ones."],
-        )
+        ),
+        Vocab(
+            word: "Refactoring",
+            definition: "The process of restructuring code without changing its functionality.",
+            synonyms: ["Revising, Overhauling"],
+            notes: ["It is good practice to refactor often! Similar to revising a paper, you make your paper neat and direct without changing the intended meaning/purpose."],
+             )
     ]
 }
