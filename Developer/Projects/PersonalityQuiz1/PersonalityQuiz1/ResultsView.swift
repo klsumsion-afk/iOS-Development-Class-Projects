@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ResultsView: View {
+    @Environment(QuizManager.self) private var quizManager
     var body: some View {
-        
+        VStack {
+            Image(systemName: "rainbow")
+        }
     }
 }
 

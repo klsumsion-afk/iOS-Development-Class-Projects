@@ -74,5 +74,6 @@ enum SpiritType {
     
     func selectAnswer(_ answer: Answer) {
         selectedAnswers.append(answer)
+//        Add ability to adjust previous selected answers before completing quiz.
     }
 }

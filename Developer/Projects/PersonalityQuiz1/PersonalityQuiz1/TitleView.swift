@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//Add more once quiz functions correctly. 
 
 struct TitleView: View {
     @State var quizManager = QuizManager()
