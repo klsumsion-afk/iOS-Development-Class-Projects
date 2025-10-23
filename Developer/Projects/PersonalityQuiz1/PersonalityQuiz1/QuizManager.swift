@@ -31,9 +31,16 @@ enum SpiritType {
 }
 
 @Observable class QuizManager {
-    var currentQuestionIndex: Int = 0
+    var currentQuestionIndex: Int = 0 {
+        willSet {
+            print("Previous\(currentQuestionIndex) to\(newValue)")
+        }
+    }
     var currentQuestion: Question {
         return questionList[currentQuestionIndex]
+    }
+    var finalQuestion: Question? {
+        return questionList.last
     }
     var selectedAnswers: [Answer] = [ ]
     let questionList: [Question] = [

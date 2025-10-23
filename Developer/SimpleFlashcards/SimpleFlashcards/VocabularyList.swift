@@ -333,6 +333,12 @@ struct Vocab {
             definition: "The process of restructuring code without changing its functionality.",
             synonyms: ["Revising, Overhauling"],
             notes: ["It is good practice to refactor often! Similar to revising a paper, you make your paper neat and direct without changing the intended meaning/purpose."],
+             ),
+        Vocab(
+            word: "Higher-Order Function",
+            definition: "A function that takes another function as a parameter, or returns one.",
+            synonyms: ["Function Composition, Functional Programming"],
+            notes: ["Swift allows passing of names or unnamed (closure) functions. .reduce, etc."]
              )
     ]
 }
