@@ -57,7 +57,7 @@ enum SpiritType {
         ),
         Question(
             text: "What is your favorite time of day?",
-            type: .multiple,
+            type: .multiple, 
             answers: [
                 Answer(text: "Morning", type: .banshee),
                 Answer(text: "Noon", type: .sylph),

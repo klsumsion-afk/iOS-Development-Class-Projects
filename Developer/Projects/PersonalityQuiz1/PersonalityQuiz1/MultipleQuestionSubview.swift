@@ -18,9 +18,9 @@ struct MultipleQuestionSubview: View {
     var body: some View {
         
         VStack {
-            Text("What is your favorite time of day?")
+            Text(quizManager.currentQuestion.text)
                 .padding()
-            Toggle("Morning", isOn: $isOn)
+            Toggle(quizManager.currentQuestion, isOn: $isOn)
                 .padding()
             Toggle("Noon", isOn: $isOn1)
                 .padding()
@@ -31,16 +31,6 @@ struct MultipleQuestionSubview: View {
             Toggle("Midnight", isOn: $isOn4)
                 .padding()
         }
-    
-//            .toolbar {
-//                ToolbarItem(placement: .bottomBar) {
-//                    HStack {
-//                        NavigationLink("Next") {
-//                            QuestionFlowView()
-//                        }
-//                    }
-//                }
-//            }
     }
 }
 

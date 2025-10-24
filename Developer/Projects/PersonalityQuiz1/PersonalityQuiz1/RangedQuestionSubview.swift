@@ -17,7 +17,7 @@ struct RangedQuestionSubview: View {
     var body: some View {
     
             VStack {
-                Text("Where do cats rank?")
+                Text(quizManager.currentQuestion.text)
                 Slider(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
                 } minimumValueLabel: {
                     Text("Worst: \(Int(minValue))")
@@ -34,15 +34,6 @@ struct RangedQuestionSubview: View {
             //                    .font(.custom("Impact", size: 50))
             //                    .foregroundStyle(Color.teal)
         
-//        .toolbar {
-//            ToolbarItem(placement: .bottomBar) {
-//                HStack {
-//                    NavigationLink("Next") {
-//                        QuestionFlowView()
-//                    }
-//                }
-//            }
-//        }
     }
 }
 

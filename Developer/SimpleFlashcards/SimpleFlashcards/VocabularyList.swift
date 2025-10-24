@@ -339,6 +339,12 @@ struct Vocab {
             definition: "A function that takes another function as a parameter, or returns one.",
             synonyms: ["Function Composition, Functional Programming"],
             notes: ["Swift allows passing of names or unnamed (closure) functions. .reduce, etc."]
+             ),
+        Vocab(
+            word: "Sequence",
+            definition: "An ordered collection of elements that can be iterated over.",
+            synonyms: ["List, Ordered Collection"],
+            notes: ["Swifts 'sequence' protocol allows iteration over data-structures"],
              )
     ]
 }
