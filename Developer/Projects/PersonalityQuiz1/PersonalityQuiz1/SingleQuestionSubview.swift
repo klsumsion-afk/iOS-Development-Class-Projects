@@ -7,6 +7,7 @@
 
 import SwiftUI
 //Picker
+//Single
 
 struct SingleQuestionSubview: View {
     @Environment(QuizManager.self) private var quizManager
@@ -15,11 +16,11 @@ struct SingleQuestionSubview: View {
 
         Text(quizManager.currentQuestion.text)
         Picker("option", selection: $pickerValue) {
-                ForEach(id: \.self) {
+            ForEach(quizManager.currentQuestion.answers) {
                     item in
                     
-                    Text(item)
-                        .tag(item)
+                Text(item.text)
+                    .tag(item.id)
                 }
             }
 

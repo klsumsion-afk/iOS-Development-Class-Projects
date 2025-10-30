@@ -21,32 +21,17 @@ struct QuestionFlowView: View {
                 MultipleQuestionSubview()
             }
         }
-        .onAppear {
-            quizManager.currentQuestionIndex = quizManager.questionList.firstIndex(of: question) ?? 0
-        }
+        
         .toolbar {
             ToolbarItem {
                 
-                if question == quizManager.finalQuestion {
-                    
-                    NavigationLink("Finish") {
-                        ResultsView()
-                    }
-                } else {
-                    NavigationLink("Next") {
-                        QuestionFlowView(question: quizManager.questionList[ quizManager.currentQuestionIndex + 1])
-                    }
-                }
-                
-                //                    Figure out 'Next' first before attempting 'Previous'.
-                
-                ///                    NavigationLink("Previous") {
-                ///                        QuestionFlowView(question: quizManager.questionList[quizManager.currentQuestionIndex - 1])
-                ///                        if quizManager.currentQuestionIndex == quizManager.questionList.firstIndex(of: question) {
-                ///                            TitleView()
-                ///                        }
-                ///                    }
-                
+                NavigationLink("Next") {
+                              if let nextQuestion = quizManager.nextQuestion(after: question) {
+                                  QuestionFlowView(question: nextQuestion)
+                              } else {
+                                  ResultsView()
+                              }
+                          }
             }
         }
     }

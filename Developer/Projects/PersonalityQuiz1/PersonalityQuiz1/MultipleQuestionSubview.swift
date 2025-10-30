@@ -18,18 +18,34 @@ struct MultipleQuestionSubview: View {
     var body: some View {
         
         VStack {
-            Text(quizManager.currentQuestion.text)
+            Text(quizManager.currentQuestion.text.multiple)
                 .padding()
-            Toggle(quizManager.currentQuestion, isOn: $isOn)
+            Toggle(" ", isOn: $isOn)
                 .padding()
-            Toggle("Noon", isOn: $isOn1)
+            Toggle(" ", isOn: $isOn1)
                 .padding()
-            Toggle("AfterNoon", isOn: $isOn2)
+            Toggle(" ", isOn: $isOn2)
                 .padding()
-            Toggle("Evening", isOn: $isOn3)
+            Toggle(" ", isOn: $isOn3)
                 .padding()
-            Toggle("Midnight", isOn: $isOn4)
+            Toggle(" ", isOn: $isOn4)
                 .padding()
+            
+                .onChange(of: isOn) {
+                    let _ = quizManager.currentQuestion.answers
+                }
+                .onChange(of: isOn1) {
+                   let _ = quizManager.currentQuestion.answers
+                }
+                .onChange(of: isOn2) {
+                    let _ = quizManager.currentQuestion.answers
+                }
+                .onChange(of: isOn3) {
+                    let _ = quizManager.currentQuestion.answers
+                }
+                .onChange(of: isOn4) {
+                    let _ = quizManager.currentQuestion.answers
+                }
         }
     }
 }

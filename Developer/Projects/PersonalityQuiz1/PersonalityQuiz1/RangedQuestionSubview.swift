@@ -17,7 +17,7 @@ struct RangedQuestionSubview: View {
     var body: some View {
     
             VStack {
-                Text(quizManager.currentQuestion.text)
+                Text(quizManager.currentQuestion.text.ranged)
                 Slider(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
                 } minimumValueLabel: {
                     Text("Worst: \(Int(minValue))")
@@ -30,10 +30,9 @@ struct RangedQuestionSubview: View {
                     Text("Ranking: \(Int(sliderValue))")
                 }
             }
-            //                Text("1  ~  2  ~  3  ~  4  ~  5")
-            //                    .font(.custom("Impact", size: 50))
-            //                    .foregroundStyle(Color.teal)
-        
+            .onChange(of: sliderValue) { _, newValue in
+                _ = quizManager.currentQuestion.answers[Int(newValue) - 1]
+            }
     }
 }
 

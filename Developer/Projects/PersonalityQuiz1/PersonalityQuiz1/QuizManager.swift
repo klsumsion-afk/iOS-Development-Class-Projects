@@ -22,7 +22,9 @@ enum ResponseType {
     case ranged
 }
 
-struct Answer {
+struct Answer: Identifiable {
+    var id: String { text }
+    
     var text: String
     var type: SpiritType
 }
@@ -39,11 +41,9 @@ enum SpiritType {
     var currentQuestion: Question {
         return questionList[currentQuestionIndex]
     }
-    var finalQuestion: Question? {
-        return questionList.last
-    }
     var selectedAnswers: [Answer] = [ ]
     let questionList: [Question] = [
+//        Need each question to refer to the correct text and Answer texts.
         Question(
             text: "What is your season?",
             type: .single,
@@ -79,8 +79,18 @@ enum SpiritType {
         )
     ]
     
+    func nextQuestion(after question: Question) -> Question? {
+            let index = questionList.firstIndex(of: question)
+            
+            if let index, index < questionList.count - 1 {
+                return questionList[index + 1]
+            } else {
+                return nil
+            }
+        }
+    
     func selectAnswer(_ answer: Answer) {
         selectedAnswers.append(answer)
-//        Add ability to adjust previous selected answers before completing quiz.
+// Need to calculate answers for resultsView
     }
 }

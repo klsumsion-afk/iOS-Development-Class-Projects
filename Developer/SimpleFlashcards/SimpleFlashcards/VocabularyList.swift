@@ -345,6 +345,33 @@ struct Vocab {
             definition: "An ordered collection of elements that can be iterated over.",
             synonyms: ["List, Ordered Collection"],
             notes: ["Swifts 'sequence' protocol allows iteration over data-structures"],
+             ),
+        Vocab(
+            word: "Index Path",
+            definition: "A representation of the position of an item in a hierarchical collection.",
+            synonyms: ["Position, Locator"],
+            notes: ["Used in `UITableView` and `UICollectionView` to identify rows or items."],
+             ),
+        Vocab(
+            word: "Stride",
+            definition: "A range that iterates by a specific step value.",
+             ),
+        Vocab(
+            word: "Hash",
+            definition: "A unique numerical representation of data used for fast lookup.",
+             ),
+        Vocab(
+            word: "Lazy Evaluation",
+            definition: "Deferring the computation of a value until it is needed.",
+             ),
+        Vocab(
+            word: "Protocol-Oriented",
+             ),
+        Vocab(
+            word: "Subscript",
+             ),
+        Vocab(
+            word: "Alias",
              )
     ]
 }
