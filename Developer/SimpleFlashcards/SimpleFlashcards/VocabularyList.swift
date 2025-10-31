@@ -355,23 +355,44 @@ struct Vocab {
         Vocab(
             word: "Stride",
             definition: "A range that iterates by a specific step value.",
+            synonyms: ["Step Range, Incremental Range"],
+            notes: ["Swift provides `stride(from:to:by:)` for looping over ranges."],
              ),
         Vocab(
             word: "Hash",
             definition: "A unique numerical representation of data used for fast lookup.",
+            synonyms: ["Checksum, Identifier"],
+            notes: ["Swift’s `Hashable` protocol enables efficient data storage in collections."],
              ),
         Vocab(
             word: "Lazy Evaluation",
             definition: "Deferring the computation of a value until it is needed.",
+            synonyms: ["On-Demand Computation, Deferred Execution"],
+            notes: ["Swift supports `lazy` properties for optimizing performance."],
              ),
         Vocab(
             word: "Protocol-Oriented",
+            definition: "A programming paradigm that emphasizes protocols over inheritance.",
+            synonyms: ["Protocol-Driven, Composition-Based"],
+            notes: ["Swift heavily favors protocol-oriented programming over classical OOP."],
              ),
         Vocab(
             word: "Subscript",
+            definition: "A special method that enables indexed access to a collection or type.",
+            synonyms: ["Indexing, Lookup"],
+            notes: ["Allows custom access like `array[index]` or `dictionary[key]`."],
              ),
         Vocab(
             word: "Alias",
+            definition: "An alternative name for an existing type.",
+            synonyms: ["Type Shortcut, Alternate Name"],
+            notes: ["Swift uses `typealias` to create aliases for complex type definitions."],
+             ),
+        Vocab(
+            word: "Big-O Notation",
+            definition: "A mathematical notation for describing the efficiency of an algorithm.",
+            synonyms: ["Complexity Analysis, Performance Metric"],
+            notes: ["Used to analyze time and space complexity in algorithm."],
              )
     ]
 }
