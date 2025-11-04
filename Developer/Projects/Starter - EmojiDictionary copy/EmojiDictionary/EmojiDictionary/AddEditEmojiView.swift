@@ -13,7 +13,7 @@ struct AddEditEmojiView: View {
     @State var description: String
     @State var usage: String
     var emojiToEdit: Emoji?
-    var onSave: (Emoji) -> Void
+    var onSave: (Emoji) -> Void /*closure*/
 
     init(emoji: Emoji?, onSave: @escaping (Emoji) -> Void) {
         _symbol = State(initialValue: emoji?.symbol ?? "")

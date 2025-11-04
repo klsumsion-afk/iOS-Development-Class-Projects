@@ -393,6 +393,18 @@ struct Vocab {
             definition: "A mathematical notation for describing the efficiency of an algorithm.",
             synonyms: ["Complexity Analysis, Performance Metric"],
             notes: ["Used to analyze time and space complexity in algorithm."],
+             ),
+        Vocab(
+            word: "Key-Value Coding",
+            definition: "A mechanism for accessing an object's properties indirectly using strings.",
+            synonyms: ["KVC, Property Lookup"],
+            notes: ["Common in Objective-C but still useful in Swift interoperability."],
+             ),
+        Vocab(
+            word: "camelCase",
+            definition: "A naming convention where words are joined without spaces, capitalizing each word but the first.",
+            synonyms: ["Mixed Case, Variable Naming"],
+            notes: ["Swift uses cameCase for variable and function names."],
              )
     ]
 }

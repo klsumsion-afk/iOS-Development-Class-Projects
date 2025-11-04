@@ -14,3 +14,5 @@ struct Emoji: Codable, Identifiable {
     var description: String
     var usage: String
 }
+
+//Step 2 is here
