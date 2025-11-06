@@ -405,6 +405,12 @@ struct Vocab {
             definition: "A naming convention where words are joined without spaces, capitalizing each word but the first.",
             synonyms: ["Mixed Case, Variable Naming"],
             notes: ["Swift uses cameCase for variable and function names."],
+             ),
+        Vocab(
+            word: "RAM, Random Access Memory",
+            definition: "A type of volatile memory used for temporary data storage.",
+            synonyms: ["Memory, Working Storage"],
+            notes: ["Faster than disk storage but loses data when power is off."],
              )
     ]
 }
