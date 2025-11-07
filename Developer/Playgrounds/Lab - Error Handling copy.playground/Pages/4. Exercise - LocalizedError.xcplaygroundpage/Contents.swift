@@ -4,13 +4,34 @@
  A better approach to the previous exercise might be using the LocalizedError protocol, so that the printed output of each error is contained in a `errorDescription` property. Using the error messages you created in the last step, change `CommunicationError` to conform to `LocalizedError`. Add an `errorDescription` computed String property, switching on self to return the appropriate message.
  */
 
-enum CommunicationError: Error {
+protocol LocalizedError : Error {
+    var errorDescription: String? { get }
+}
+
+enum CommunicationError: LocalizedError {
     case networkServiceUnavailable
     case invalidMessage(String)
     case timedOut(waitTime: Int)
     case cancelledByUser
     case rejectedByServer(reason: String)
     case unknown
+    
+    var errorDescription: String? {
+        switch self {
+        case .networkServiceUnavailable:
+            return "Network Service Unavailable"
+        case .invalidMessage(_):
+            return "\("blah blah blah") is an invalid message"
+        case .timedOut(waitTime: let waitTime):
+            return "Your wait time has exceeded the \(5) hour limit"
+        case .cancelledByUser:
+            return "The user has cancelled your services"
+        case .rejectedByServer(reason: let reason):
+            return "You were rejected by the server due to: \("Bot! Alert! Alert!")"
+        case .unknown:
+            return "You are an enigma"
+        }
+    }
 }
 
 func sendPacket() throws {
@@ -38,6 +59,8 @@ func sendPacket() throws {
 
 do {
     try sendPacket()
+} catch let communicationError as CommunicationError {
+    print(communicationError.errorDescription)
 }
 
 /*:

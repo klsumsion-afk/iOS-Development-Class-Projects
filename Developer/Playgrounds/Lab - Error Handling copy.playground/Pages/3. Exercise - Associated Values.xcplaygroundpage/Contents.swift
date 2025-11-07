@@ -37,9 +37,19 @@ func sendPacket() throws {
  */
 
 do {
-    try? sendPacket()
+    try sendPacket()
 } catch CommunicationError.networkServiceUnavailable {
-    
+   print("Network Service Unavailable")
+} catch CommunicationError.invalidMessage("\"outGonigMessage\": \"Hi!\"") {
+    print("Communication error due to invalid message: \("\"outGonigMessage\": \"Hi!\"")")
+} catch CommunicationError.timedOut(waitTime: 5) {
+    print("You were timed out; total wait time being: \(5) hours.")
+} catch CommunicationError.cancelledByUser {
+    print("Assistance no longer required due to request being cancelled by user.")
+} catch CommunicationError.rejectedByServer(reason: "You're a bot!") {
+    print("You were rejected by the server due to: \("You're a bot!")")
+} catch CommunicationError.unknown {
+    print("Error: Cause Unknown")
 }
 
 /*:

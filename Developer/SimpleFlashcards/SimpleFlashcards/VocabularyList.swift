@@ -411,6 +411,12 @@ struct Vocab {
             definition: "A type of volatile memory used for temporary data storage.",
             synonyms: ["Memory, Working Storage"],
             notes: ["Faster than disk storage but loses data when power is off."],
+             ),
+        Vocab(
+            word: "Disk",
+            definition: "Persistent storage for data even when power is turned off.",
+            synonyms: ["Storage, Drive"],
+            notes: ["Named for the physical disk in hard drives but still used with solid state drives."],
              )
     ]
 }

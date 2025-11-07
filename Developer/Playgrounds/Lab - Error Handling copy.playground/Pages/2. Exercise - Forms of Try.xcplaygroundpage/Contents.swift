@@ -13,12 +13,17 @@ func divide(_ numerator: Double, by denominator: Double) throws -> Double {
     return numerator / denominator
 }
  
+do {
+    try divide(10, by: 0)
+} catch {
+    print(error)
+}
 //:  Now call the function using `try?`. Since errors are not handled when using `try?`, you do not need a `do`/`catch` statement. Test using valid and invalid inputs, printing the result.
-
-
+print(try? divide(20, by: 2))
+print(try? divide(4, by: 0))
 //:  Finally, call the function using `try!` and test it with an invalid input. What happens if the input is invalid? Write a comment explaining your answer, then set a valid input.
-
-
+print(try! divide(1, by: 1))
+//It crashes and does not print the result because the ! only wants valid inputs
 /*:
 [Previous](@previous)  |  page 2 of 4  |  [Next: Exercise - Associated Values](@next)
  */

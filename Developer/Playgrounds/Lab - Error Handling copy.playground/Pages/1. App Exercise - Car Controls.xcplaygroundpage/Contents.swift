@@ -16,6 +16,7 @@ func startEngine(gallonsGasInTank: Int) throws {
 
 enum RemoteError: Error {
     case outOfGas
+    case notInPark
 }
 
 do {
@@ -56,8 +57,19 @@ enum Gear {
 var selectedGear: Gear = .drive
 var locked = true
 
+func toggleDoorLocks(gear: Gear) throws {
+    if gear == .park {
+        locked = false
+    } else {
+        throw RemoteError.notInPark
+    }
+}
 //:  Test out your `toggleDoorLocks` function in a do/catch statement.
-
+do {
+    try toggleDoorLocks(gear: .park)
+} catch {
+    print(error)
+}
 
 /*:
 page 1 of 4  |  [Next: Exercise - Forms of Try](@next)
