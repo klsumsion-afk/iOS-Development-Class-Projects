@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  SocialMediaApp Project 7
+//  CalendarApp-Project7
 //
-//  Created by Karigan Sumsion on 11/6/25.
+//  Created by Karigan Sumsion on 11/7/25.
 //
 
 import SwiftUI
