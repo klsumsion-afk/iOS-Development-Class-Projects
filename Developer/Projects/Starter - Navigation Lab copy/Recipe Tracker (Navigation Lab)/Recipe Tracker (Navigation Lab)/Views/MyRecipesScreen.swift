@@ -20,18 +20,20 @@ struct MyRecipesScreen: View {
                 } label: {
                     Text(recipe.title)
                 }
-
-                }
+                
             }
+            .navigationTitle("Recipes")
             .toolbar {
                 Button(action: { showingAddRecipe = true}) {
                     Image(systemName: "plus")
                 }
             }
             .sheet(isPresented: $showingAddRecipe) {
+                AddRecipeSheet(recipes: $recipes)
             }
         }
     }
+}
 
 
 struct AddRecipeSheet: View {

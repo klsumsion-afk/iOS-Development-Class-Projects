@@ -9,9 +9,6 @@ import SwiftUI
 
 struct EmojiListView: View {
     @State  var emojis: [Emoji] = [ ]
-//        Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
-        // ... (other Emoji initializers)
-    
     @State private var isShowingAddEdit = false
     @State private var editingEmoji: Emoji? = nil
 
@@ -26,8 +23,15 @@ struct EmojiListView: View {
                         EmojiRow(emoji: emoji)
                     }
                 }
-                .onDelete { indices in emojis.remove(atOffsets: indices) }
-                .onMove { indices, newOffset in emojis.move(fromOffsets: indices, toOffset: newOffset) }
+                .onDelete { indices in
+                    emojis.remove(atOffsets: indices)
+                    Emoji.saveToFile(emojis: emojis)
+
+                }
+                .onMove { indices, newOffset in
+                    emojis.move(fromOffsets: indices, toOffset: newOffset)
+                    Emoji.saveToFile(emojis: emojis)
+                }
             }
             .navigationTitle("Emoji Dictionary")
             .toolbar {
@@ -37,6 +41,9 @@ struct EmojiListView: View {
                     isShowingAddEdit = true
                 }
             }
+            .onAppear {
+                emojis = Emoji.loadFromFile()
+            }
             .sheet(isPresented: $isShowingAddEdit) {
                 AddEditEmojiView(emoji: editingEmoji) { result in
                     if let index = emojis.firstIndex(where: { $0.id == result.id }) {
@@ -44,6 +51,7 @@ struct EmojiListView: View {
                     } else {
                         emojis.append(result)
                     }
+                    Emoji.saveToFile(emojis: emojis)
                     isShowingAddEdit = false
                 }
             }

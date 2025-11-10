@@ -417,6 +417,12 @@ struct Vocab {
             definition: "Persistent storage for data even when power is turned off.",
             synonyms: ["Storage, Drive"],
             notes: ["Named for the physical disk in hard drives but still used with solid state drives."],
+             ),
+        Vocab(
+            word: "Back End",
+            definition: "The server-side logic, database interactions, and processing in an application.",
+            synonyms: ["Server Logic, Data Layer"],
+            notes: ["Includes handling requests, authentication, and data storage."],
              )
     ]
 }

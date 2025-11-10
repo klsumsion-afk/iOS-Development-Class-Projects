@@ -13,9 +13,6 @@ struct RecipeDetailScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text(recipe.title)
-                    .font(.largeTitle)
-                    .bold()
 
                 Text("**Ingredients**")
                     .font(.headline)
