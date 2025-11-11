@@ -33,17 +33,9 @@ enum SpiritType {
 }
 
 @Observable class QuizManager {
-    var currentQuestionIndex: Int = 0 {
-        willSet {
-            print("Previous\(currentQuestionIndex) to\(newValue)")
-        }
-    }
-    var currentQuestion: Question {
-        return questionList[currentQuestionIndex]
-    }
-    var selectedAnswers: [Answer] = [ ]
+    var selectedAnswers: [String: [SpiritType]] = [:]
     let questionList: [Question] = [
-//        Need each question to refer to the correct text and Answer texts.
+        //        Need each question to refer to the correct text and Answer texts.
         Question(
             text: "What is your season?",
             type: .single,
@@ -57,7 +49,7 @@ enum SpiritType {
         ),
         Question(
             text: "What is your favorite time of day?",
-            type: .multiple, 
+            type: .multiple,
             answers: [
                 Answer(text: "Morning", type: .banshee),
                 Answer(text: "Noon", type: .sylph),
@@ -89,8 +81,29 @@ enum SpiritType {
             }
         }
     
-    func selectAnswer(_ answer: Answer) {
-        selectedAnswers.append(answer)
-// Need to calculate answers for resultsView
+    func selectAnswers(_ answers: [SpiritType], forQuestionText text: String) {
+        selectedAnswers[text] = answers
+    }
+    
+    func calculateResult() -> SpiritType {
+        let allAnswers = selectedAnswers.values.flatMap(\.self)
+        
+        var counts: [SpiritType: Int] = [ : ]
+        
+        allAnswers.forEach { spirit in
+            if let spiritCount = counts[spirit] {
+                counts[spirit] = spiritCount + 1
+            } else {
+                counts[spirit] = 1
+            }
+        }
+        
+        if let (key, _) = counts.max(by: { $0.value < $1.value }) {
+            print("The result is \(key)")
+            return key
+        } else {
+//            This should never be hit
+            return .dragon
+        }
     }
 }

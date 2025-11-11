@@ -14,11 +14,11 @@ struct QuestionFlowView: View {
         VStack {
             switch question.type {
             case .single:
-                SingleQuestionSubview()
+                SingleQuestionSubview(question: question)
             case .ranged:
-                RangedQuestionSubview()
+                RangedQuestionSubview(question: question)
             case .multiple:
-                MultipleQuestionSubview()
+                MultipleQuestionSubview(question: question)
             }
         }
         
@@ -26,12 +26,12 @@ struct QuestionFlowView: View {
             ToolbarItem {
                 
                 NavigationLink("Next") {
-                              if let nextQuestion = quizManager.nextQuestion(after: question) {
-                                  QuestionFlowView(question: nextQuestion)
-                              } else {
-                                  ResultsView()
-                              }
-                          }
+                    if let nextQuestion = quizManager.nextQuestion(after: question) {
+                        QuestionFlowView(question: nextQuestion)
+                    } else {
+                        ResultsView()
+                    }
+                }
             }
         }
     }

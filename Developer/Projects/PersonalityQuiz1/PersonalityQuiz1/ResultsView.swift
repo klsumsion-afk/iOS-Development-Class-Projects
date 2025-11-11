@@ -13,6 +13,10 @@ struct ResultsView: View {
         VStack {
             Image(systemName: "rainbow")
         }
+        .onAppear {
+            print(quizManager.selectedAnswers)
+            let result = quizManager.calculateResult()
+        }
     }
 }
 
