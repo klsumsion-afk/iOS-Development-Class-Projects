@@ -423,6 +423,11 @@ struct Vocab {
             definition: "The server-side logic, database interactions, and processing in an application.",
             synonyms: ["Server Logic, Data Layer"],
             notes: ["Includes handling requests, authentication, and data storage."],
+             ),
+        Vocab(word: "Framework",
+              definition: "A collection of pre-written code that provides common functionalities for development.",
+              synonyms: ["Library, S.D.K."],
+              notes: ["ex. SwiftUI, UIKit, Combine, CoreData"],
              )
     ]
 }

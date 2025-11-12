@@ -9,7 +9,7 @@ import SwiftUI
 //Add more once quiz functions correctly. 
 
 struct TitleView: View {
-    @State var quizManager = QuizManager()
+    var viewModel = TitleViewViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,13 +17,13 @@ struct TitleView: View {
                 Image(systemName: "moon.stars")
                     .font(.largeTitle)
                 NavigationLink("Begin") {
-                    QuestionFlowView(question: quizManager.questionList.first!)
+                    QuestionFlowView(question: viewModel.quizManager.questionList.first!)
                 }
                 
             }
             .padding()
         }
-        .environment(quizManager)
+        .environment(viewModel.quizManager)
     }
 }
 
