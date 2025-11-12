@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "drawlloween_ao_andon_by_irenhorrors_ddhsxke-fullview.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "drawlloween_ao_andon_by_irenhorrors_ddhsxke-fullview 1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "drawlloween_ao_andon_by_irenhorrors_ddhsxke-fullview 2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

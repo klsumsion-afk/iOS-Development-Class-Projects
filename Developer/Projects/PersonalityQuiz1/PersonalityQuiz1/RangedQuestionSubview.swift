@@ -23,9 +23,9 @@ struct RangedQuestionSubview: View {
                 Text(question.text)
                 Slider(value: $sliderValue, in: minValue...maxValue, step: stepValue) {
                 } minimumValueLabel: {
-                    Text("Worst: \(Int(minValue))")
+                    Text("Lowest: \(Int(minValue))")
                 } maximumValueLabel: {
-                    Text("Best: \(Int(maxValue))")
+                    Text("Highest: \(Int(maxValue))")
                 }
                 .padding(.horizontal)
                 

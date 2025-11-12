@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "kitsune_by_mythka_dhqg2ir-fullview.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "kitsune_by_mythka_dhqg2ir-fullview 1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "kitsune_by_mythka_dhqg2ir-fullview 2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

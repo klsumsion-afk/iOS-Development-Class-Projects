@@ -15,6 +15,7 @@ struct TitleView: View {
         NavigationStack {
             VStack {
                 Image(systemName: "moon.stars")
+                    .font(.largeTitle)
                 NavigationLink("Begin") {
                     QuestionFlowView(question: quizManager.questionList.first!)
                 }
