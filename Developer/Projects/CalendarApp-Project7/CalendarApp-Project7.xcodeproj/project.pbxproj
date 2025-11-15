@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		DAC5BE0B2EBE494600EBC829 /* CalendarApp-Project7 */ = {
+		DA50CDB02EC9180000424F5E /* CalendarApp-Project7 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "CalendarApp-Project7";
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		DAC5BE002EBE494600EBC829 = {
 			isa = PBXGroup;
 			children = (
-				DAC5BE0B2EBE494600EBC829 /* CalendarApp-Project7 */,
+				DA50CDB02EC9180000424F5E /* CalendarApp-Project7 */,
 				DAC5BE0A2EBE494600EBC829 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				DAC5BE0B2EBE494600EBC829 /* CalendarApp-Project7 */,
+				DA50CDB02EC9180000424F5E /* CalendarApp-Project7 */,
 			);
 			name = "CalendarApp-Project7";
 			packageProductDependencies = (

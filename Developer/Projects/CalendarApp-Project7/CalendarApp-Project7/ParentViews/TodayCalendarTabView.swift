@@ -1,13 +1,11 @@
 //
-//  ContentView.swift
-//  CalendarApp-Project7
-//
-//  Created by Karigan Sumsion on 11/7/25.
+//This View has Lesson ID, Lesson Name, Main Objective, Reading Due, Assignments Due, New Assignments, Daily Code Challenge, and Word of the Day.
+//All logic is in the view model. 
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct TodayCalendarTabView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +18,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TodayCalendarTabView()
 }

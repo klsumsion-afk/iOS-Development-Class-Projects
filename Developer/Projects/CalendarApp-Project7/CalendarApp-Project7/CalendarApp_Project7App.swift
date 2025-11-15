@@ -1,8 +1,5 @@
 //
-//  CalendarApp_Project7App.swift
-//  CalendarApp-Project7
-//
-//  Created by Karigan Sumsion on 11/7/25.
+//As of Nov. 15th I am currently setting up all the views and their UI before beginning the view models and making things function.
 //
 
 import SwiftUI
@@ -11,7 +8,8 @@ import SwiftUI
 struct CalendarApp_Project7App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TodayCalendarTabView()
+            FullCalenderTabView()
         }
     }
 }
