@@ -33,6 +33,23 @@ struct ResultsView: View {
                 Image("sylph")
             case .unicorn:
                 Image("unicorn")
+//                Add tie breaker by combining the tie into a new creature:
+                /// Unicorn + Banshee = Kelpie
+                /// Unicorn + Dragon = Kirin
+                /// Unicorn + Kitsune = Bakotsu/Skeletal + Fire Horse
+                /// Unicorn + Sylph = Pegasus
+                ///
+                /// Sylph + Banshee = Elf/Aos Si
+                /// Sylph + Dragon = Lung Dragon
+                /// Sylph + Kitsune =
+                ///
+                /// Kitsune + Banshee = Cerberus
+                /// Kitsune + Dragon =
+                ///
+                /// Dragon + Banshee = Leviathan
+                ///
+                /// If there is a three way tie = Quetzalcoatl
+                /// If there is a four or five way tie = Khaos
             }
         }
     }

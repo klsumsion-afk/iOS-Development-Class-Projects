@@ -97,8 +97,28 @@ enum SpiritType: String, CaseIterable {
                     Answer(text: "Tennis", type: .unicorn),
                     Answer(text: "Soccer", type: .kitsune),
                     Answer(text: "Hockey", type: .banshee)
-                          ]
+                 ]
                 ),
+        Question(text: "What exotic pet would you keep?",
+                 type: .single,
+                 answers: [
+                    Answer(text: "Rabbit", type: .dragon),
+                    Answer(text: "Snake", type: .banshee),
+                    Answer(text: "Bird", type: .sylph),
+                    Answer(text: "Lizard", type: .unicorn),
+                    Answer(text: "Ferret", type: .kitsune),
+                 ]
+                ),
+        //        Question(text: "How likely are you to date the Beast from Beauty and the Beast?",
+        //                 type: .ranged,
+        //                 answers: [
+        //                    Answer(text: "\(Int(1.0))", type: .),
+        //                    Answer(text: "\(Int(2.0))", type: .),
+        //                    Answer(text: "\(Int(3.0))", type: .),
+        //                    Answer(text: "\(Int(4.0))", type: .),
+        //                    Answer(text: "\(Int(5.0))", type: .)
+        //                 ]
+        //                ),
         Question(text: "Who is better?",
                  type: .single,
                  answers: [
@@ -137,6 +157,16 @@ enum SpiritType: String, CaseIterable {
                     Answer(text: "\(Int(3.0))", type: .unicorn),
                     Answer(text: "\(Int(4.0))", type: .kitsune),
                     Answer(text: "\(Int(5.0))", type: .dragon)
+                 ]
+                ),
+        Question(text: "How would you rather die?",
+                 type: .single,
+                 answers: [
+                    Answer(text: "Die by firing squad", type: .dragon),
+                    Answer(text: "Die by drowning", type: .sylph),
+                    Answer(text: "Die by falling", type: .unicorn),
+                    Answer(text: "Die by acid", type: .banshee),
+                    Answer(text: "Die by stabbing", type: .kitsune),
                  ]
                 ),
         Question(text: "How much do you like Taylor Swift?",
@@ -247,7 +277,7 @@ enum SpiritType: String, CaseIterable {
                     Answer(text: "Star", type: .sylph),
                     Answer(text: "Galaxy", type: .kitsune),
                     Answer(text: "Black Hole", type: .banshee)
-                          ]
+                 ]
                 ),
         Question(text: "How much do you like Halloween?",
                  type: .ranged,
