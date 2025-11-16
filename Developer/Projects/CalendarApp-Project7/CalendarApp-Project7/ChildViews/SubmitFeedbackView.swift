@@ -1,16 +1,25 @@
+////
+////Text fields for anwsering questions and a submit button will be on this view.
+////Remember logic is not in the view.
+////
 //
-//Text fields for anwsering questions and a submit button will be on this view.
-//Remember logic is not in the view.
+//import SwiftUI
 //
-
-import SwiftUI
-
-struct SubmitFeedbackView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    SubmitFeedbackView()
-}
+//struct SubmitFeedbackView: View {
+//    var body: some View {
+//        VStack {
+//            //            @State properties are held within the viewModel.
+//            TextField(<#LocalizedStringKey#>, text: <#Binding<String>#>)
+//            TextField(<#LocalizedStringKey#>, text: <#Binding<String>#>)
+//            TextField(<#LocalizedStringKey#>, text: <#Binding<String>#>)
+//
+//            Button(action: { }) {
+//                Text("Submit")
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    SubmitFeedbackView()
+//}

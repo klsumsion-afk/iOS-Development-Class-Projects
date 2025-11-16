@@ -7,7 +7,14 @@ import SwiftUI
 
 struct FullCalenderTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Lesson ID")
+//            Lesson ID will be replaced by that date's ID
+            Text("Lesson Name")
+//            Same for this too
+            Text("Assignments Due")
+//            List assignments due underneath or next to this text box
+        }
     }
 }
 
