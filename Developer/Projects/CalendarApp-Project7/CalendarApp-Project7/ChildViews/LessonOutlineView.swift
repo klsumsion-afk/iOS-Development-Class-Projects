@@ -5,13 +5,43 @@
 
 import SwiftUI
 
+protocol LessonOutlineAPIService {
+    func fetchLessonOutline() async throws -> String
+}
+
+struct LessonOutlineViewModel {
+    var text: String
+    
+    var apiService: LessonOutlineAPIService
+}
+
 struct LessonOutlineView: View {
+    @State var lessonOutlineViewModel: LessonOutlineViewModel
+    
     var body: some View {
-//        Markdown???
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(lessonOutlineViewModel.text)
+            .task {
+                do {
+                    let string = try await lessonOutlineViewModel.apiService.fetchLessonOutline()
+                    lessonOutlineViewModel.text = string
+                } catch {
+                    print(error)
+                }
+            }
     }
 }
 
 #Preview {
-    LessonOutlineView()
+    LessonOutlineView(
+        lessonOutlineViewModel: LessonOutlineViewModel(
+            text: "",
+            apiService: MockLessonAPIService()
+        )
+    )
+}
+
+struct MockLessonAPIService: LessonOutlineAPIService {
+    func fetchLessonOutline() async throws -> String {
+        return "**ten**"
+    }
 }

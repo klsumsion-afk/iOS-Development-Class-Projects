@@ -428,6 +428,18 @@ struct Vocab {
               definition: "A collection of pre-written code that provides common functionalities for development.",
               synonyms: ["Library, S.D.K."],
               notes: ["ex. SwiftUI, UIKit, Combine, CoreData"],
+             ),
+        Vocab(
+            word: "Magic Number",
+            definition: "Unexplained numeric literal values embedded directly into code without named constants to explain their derivation.",
+            synonyms: ["Hard-Coded Value, Unnamed Constant"],
+            notes: ["Using magic numbers makes code less readable and harder to maintain; define constants with descriptive names instead."],
+             ),
+        Vocab(
+            word: "Linter",
+            definition: "A tool that analyzes source code to flag programing errors, bogs, stylistic errors, and suspicious constructs.",
+            synonyms: ["Code Analyzer, Style Checker"],
+            notes: ["SwiftLint is a popular linter for swift that helps maintain consistent coding standards."],
              )
     ]
 }

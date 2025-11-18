@@ -29,7 +29,14 @@ struct Answer: Identifiable {
     var type: SpiritType
 }
 enum SpiritType: String, CaseIterable {
-    case kitsune = "Kitsune", unicorn = "Unicorn", sylph = "Sylph", banshee = "Banshee", dragon = "Dragon"
+//    Default
+    case kitsune = "Kitsune"
+    case unicorn = "Unicorn"
+    case sylph = "Sylph"
+    case banshee = "Banshee"
+    case dragon = "Dragon"
+//    Tie Breakers
+    case kelpie = "Kelpie"
 }
 
 @Observable class QuizManager {

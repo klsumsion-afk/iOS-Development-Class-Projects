@@ -19,7 +19,7 @@ struct ResultsView: View {
                     _ = quizManager.calculateResult()
                 }
                 .padding()
-            Text("Your Spirit is a \(quizManager.calculateResult().rawValue)")
+            Text("Your Mythological Spirit is a \(quizManager.calculateResult().rawValue)")
             
                 .padding()
             switch quizManager.calculateResult() {

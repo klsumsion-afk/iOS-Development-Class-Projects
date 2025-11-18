@@ -7,8 +7,9 @@ import SwiftUI
 
 struct AssignmentOutlineView: View {
     var body: some View {
-//        Markdown???
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+// Markdown
+        Text(AttributedString("jalfjldk"))
+
     }
 }
 
