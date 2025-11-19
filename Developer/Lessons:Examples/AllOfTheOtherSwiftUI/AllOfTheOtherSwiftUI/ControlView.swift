@@ -29,7 +29,7 @@ struct ControlView: View {
                 .onChange(of: textFieldText) {
                     oldValue, newValue in
                     
-                    print("Changed from \(oldValue) to \(newValue)")
+//                    print("Changed from \(oldValue) to \(newValue)")
                 }
             
             VStack {

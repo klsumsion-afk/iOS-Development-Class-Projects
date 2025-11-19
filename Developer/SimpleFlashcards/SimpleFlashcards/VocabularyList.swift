@@ -440,6 +440,12 @@ struct Vocab {
             definition: "A tool that analyzes source code to flag programing errors, bogs, stylistic errors, and suspicious constructs.",
             synonyms: ["Code Analyzer, Style Checker"],
             notes: ["SwiftLint is a popular linter for swift that helps maintain consistent coding standards."],
+             ),
+        Vocab(
+            word: "Asynchronous",
+            definition: "Code execution that doesn't block the main thread and can run independtly while other operations continue.",
+            synonyms: ["Non Blocking, Concurrent, Parallel"],
+            notes: ["Swift uses async/await syntax for handling async opertations. Important for keeping UI responsive during network calls or heavy processing."],
              )
     ]
 }

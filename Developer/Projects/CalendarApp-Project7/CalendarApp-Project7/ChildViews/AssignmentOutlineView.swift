@@ -5,14 +5,48 @@
 
 import SwiftUI
 
-struct AssignmentOutlineView: View {
-    var body: some View {
-// Markdown
-        Text(AttributedString("jalfjldk"))
+protocol AssignmentOutlineAPIService {
+    func fetchAssignmentOutline() async throws -> String
+}
 
+struct AssignmentOutlineViewModel {
+    var text: String
+    
+    var apiService: AssignmentOutlineAPIService
+}
+
+struct AssignmentOutlineView: View {
+    @State var assignmentOutlineViewModel: AssignmentOutlineViewModel
+    
+    var body: some View {
+        Text(assignmentOutlineViewModel.text)
+            .task {
+                do {
+                    let string = try await
+                    assignmentOutlineViewModel.apiService.fetchAssignmentOutline()
+                    assignmentOutlineViewModel.text = string
+                } catch {
+                    print(error)
+                }
+            }
+        
+    }
+}
+
+struct MockAssignmentAPIService:
+    AssignmentOutlineAPIService {
+    func fetchAssignmentOutline() async throws -> String {
+        return "**Bold**"
     }
 }
 
 #Preview {
-    AssignmentOutlineView()
+    AssignmentOutlineView(
+        assignmentOutlineViewModel:
+            AssignmentOutlineViewModel(
+                text: "",
+                apiService:
+                    MockAssignmentAPIService()
+            )
+    )
 }

@@ -31,6 +31,12 @@ struct LessonOutlineView: View {
     }
 }
 
+struct MockLessonAPIService: LessonOutlineAPIService {
+    func fetchLessonOutline() async throws -> String {
+        return "**ten**"
+    }
+}
+
 #Preview {
     LessonOutlineView(
         lessonOutlineViewModel: LessonOutlineViewModel(
@@ -40,8 +46,3 @@ struct LessonOutlineView: View {
     )
 }
 
-struct MockLessonAPIService: LessonOutlineAPIService {
-    func fetchLessonOutline() async throws -> String {
-        return "**ten**"
-    }
-}
