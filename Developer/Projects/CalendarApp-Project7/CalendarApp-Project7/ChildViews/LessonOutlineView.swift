@@ -9,6 +9,7 @@ protocol LessonOutlineAPIService {
     func fetchLessonOutline() async throws -> String
 }
 
+
 struct LessonOutlineViewModel {
     var text: String
     

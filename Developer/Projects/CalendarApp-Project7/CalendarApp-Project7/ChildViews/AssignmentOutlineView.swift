@@ -9,6 +9,7 @@ protocol AssignmentOutlineAPIService {
     func fetchAssignmentOutline() async throws -> String
 }
 
+
 struct AssignmentOutlineViewModel {
     var text: String
     
@@ -29,6 +30,11 @@ struct AssignmentOutlineView: View {
                     print(error)
                 }
             }
+            .padding()
+        
+        Button(action: { }) {
+            Text("Mark Complete")
+        }
         
     }
 }

@@ -5,7 +5,13 @@
 
 import SwiftUI
 
+struct FullCalenderViewModel {
+    
+}
+
 struct FullCalenderTabView: View {
+    @State var fullCalenderViewModel: FullCalenderViewModel
+    
     var body: some View {
         VStack {
             Text("Lesson ID")
@@ -19,5 +25,5 @@ struct FullCalenderTabView: View {
 }
 
 #Preview {
-    FullCalenderTabView()
+    FullCalenderTabView(fullCalenderViewModel: FullCalenderViewModel())
 }
