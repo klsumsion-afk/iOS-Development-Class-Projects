@@ -41,10 +41,10 @@ struct ResultsView: View {
                 ///
                 /// Sylph + Banshee = Elf/Aos Si
                 /// Sylph + Dragon = Lung Dragon
-                /// Sylph + Kitsune =
+                /// Sylph + Kitsune = Deerfox
                 ///
                 /// Kitsune + Banshee = Cerberus
-                /// Kitsune + Dragon =
+                /// Kitsune + Dragon = 
                 ///
                 /// Dragon + Banshee = Leviathan
                 ///
