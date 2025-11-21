@@ -446,6 +446,18 @@ struct Vocab {
             definition: "Code execution that doesn't block the main thread and can run independtly while other operations continue.",
             synonyms: ["Non Blocking, Concurrent, Parallel"],
             notes: ["Swift uses async/await syntax for handling async opertations. Important for keeping UI responsive during network calls or heavy processing."],
+             ),
+        Vocab(
+            word: "Assembly",
+            definition: "Low-level programming language that is closely related to machine code but uses human readable mnemonics.",
+            synonyms: ["Machine Code, Low-Level Language"],
+            notes: ["Swift code is ultimately compiled into machine code. Understanding assembly can help with debugging performance issues."],
+             ),
+        Vocab(
+            word: "Event",
+            definition: "An action or occurrence detected by a program that may need to be handled.",
+            synonyms: ["Action, Trigger, Signal"],
+            notes: ["Events drive iOS apps - user interactions (like Taps), system events, and notifications are all handled through event processing."],
              )
     ]
 }
