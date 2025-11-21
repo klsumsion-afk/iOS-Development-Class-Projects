@@ -30,14 +30,45 @@ class FullCalenderViewModel {
 struct FullCalenderTabView: View {
     @State var fullCalenderViewModel: FullCalenderViewModel
     
+    
     var body: some View {
+        
+        
         VStack {
-            Text("Lesson ID")
-//            Lesson ID will be replaced by that date's ID
-            Text("Lesson Name")
-//            Same for this too
-            Text("Assignments Due")
-//            List assignments due underneath or next to this text box
+            if let lessonOutline = fullCalenderViewModel.lessonOutline {
+                
+                Text("Lesson ID")
+                    .padding()
+                Text(lessonOutline.lessonID)
+                    .padding()
+                Text("Lesson Name")
+                    .padding()
+                NavigationLink(destination: LessonOutlineView(lessonOutlineViewModel: LessonOutlineViewModel(text: "", apiService: MockLessonAPIService()))) {
+                    Label: do {
+                        Text(lessonOutline.lessonName)
+                    }
+                }
+                    .padding()
+                Text("Assignments Due")
+                    .padding()
+                NavigationLink(destination: AssignmentOutlineView(assignmentOutlineViewModel: AssignmentOutlineViewModel(text: "", apiService: MockAssignmentAPIService()))) {
+                    Label: do {
+                        Text(lessonOutline.assignmentsDue)
+                    }
+                }
+            } else {
+                Text("Lesson Outline not found.")
+            }
+        }
+        .padding()
+        
+        .task {
+            do {
+                let string = try await fullCalenderViewModel.apiService.fetchFullCalenderOutline()
+                fullCalenderViewModel.lessonOutline = string
+            } catch {
+                print(error)
+            }
         }
     }
 }

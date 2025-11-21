@@ -20,18 +20,19 @@ struct LessonOutlineView: View {
     @State var lessonOutlineViewModel: LessonOutlineViewModel
     
     var body: some View {
-        Text(lessonOutlineViewModel.text)
-            .task {
-                do {
-                    let string = try await lessonOutlineViewModel.apiService.fetchLessonOutline()
-                    lessonOutlineViewModel.text = string
-                } catch {
-                    print(error)
+        NavigationStack {
+            Text(lessonOutlineViewModel.text)
+                .task {
+                    do {
+                        let string = try await lessonOutlineViewModel.apiService.fetchLessonOutline()
+                        lessonOutlineViewModel.text = string
+                    } catch {
+                        print(error)
+                    }
                 }
-            }
+        }
     }
 }
-
 struct MockLessonAPIService: LessonOutlineAPIService {
     func fetchLessonOutline() async throws -> String {
         return "**ten**"

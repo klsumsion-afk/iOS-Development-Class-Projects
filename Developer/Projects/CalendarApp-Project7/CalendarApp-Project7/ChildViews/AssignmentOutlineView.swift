@@ -20,22 +20,24 @@ struct AssignmentOutlineView: View {
     @State var assignmentOutlineViewModel: AssignmentOutlineViewModel
     
     var body: some View {
-        Text(assignmentOutlineViewModel.text)
-            .task {
-                do {
-                    let string = try await
-                    assignmentOutlineViewModel.apiService.fetchAssignmentOutline()
-                    assignmentOutlineViewModel.text = string
-                } catch {
-                    print(error)
+        NavigationStack {
+            Text(assignmentOutlineViewModel.text)
+                .task {
+                    do {
+                        let string = try await
+                        assignmentOutlineViewModel.apiService.fetchAssignmentOutline()
+                        assignmentOutlineViewModel.text = string
+                    } catch {
+                        print(error)
+                    }
                 }
+                .padding()
+            
+            Button(action: { }) {
+                Text("Mark Complete")
             }
-            .padding()
-        
-        Button(action: { }) {
-            Text("Mark Complete")
+            
         }
-        
     }
 }
 

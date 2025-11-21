@@ -29,56 +29,72 @@ class TodayCalendarTabViewModel {
     }
 }
 
+
+
 //UI
 struct TodayCalendarTabView: View {
     @State var viewModel: TodayCalendarTabViewModel
     
     var body: some View {
-//        Add ScrollView Later
+        //        Add ScrollView Later
+        
         VStack {
             if let lessonOutline = viewModel.lessonOutline {
-//                Need to figure how to incorparate the hstacks that makes the code happy
-                    ForEach(lessonOutline, id: \.self) {lessonOutline in
-                        HStack {
-                            Text("Daily Code Challenge")
-                                .padding()
-                            Text(viewModel.lessonOutline.dailyCodeChallenge)
-                                .padding()
-                            Text("Word of the Day")
-                                .padding()
-                            Text(viewModel.lessonOutline.wordOfTheDay)
+                
+                HStack {
+                    Text("Daily Code Challenge")
+                        .padding()
+                    Text(lessonOutline.dailyCodeChallenge)
+                        .padding()
+                    Text("Word of the Day")
+                        .padding()
+                    Text(lessonOutline.wordOfTheDay)
+                }
+                HStack {
+                    Text("Lesson ID")
+                        .padding()
+                    Text(lessonOutline.lessonID)
+                        .padding()
+                    Text("Lesson Name")
+                        .padding()
+                    NavigationLink(destination: LessonOutlineView(lessonOutlineViewModel: LessonOutlineViewModel(text: "", apiService: MockLessonAPIService()))) {
+                        Label: do {
+                            Text(lessonOutline.lessonName)
                         }
-                        HStack {
-                            Text("Lesson ID")
-                                .padding()
-                            Text(viewModel.lessonOutline.lessonID)
-                                .padding()
-                            Text("Lesson Name")
-                                .padding()
-                            Text(viewModel.lessonOutline.lessonName)
-                        }
-                        Text("Main Objective")
-                            .padding()
-                        Text(viewModel.lessonOutline.mainObjective)
-                            .padding()
-                        HStack {
-                            Text("Reading Due")
-                                .padding()
-                            Text(viewModel.lessonOutline.readingDue)
-                                .padding()
-                            Text("Assignments Due")
-                                .padding()
-                            Text(viewModel.lessonOutline.assignmentsDue)
-                        }
-                        Text("New Assignments")
-                            .padding()
-                        Text(viewModel.lessonOutline.newAssignments)
                     }
+                }
+                Text("Main Objective")
+                    .padding()
+                Text(lessonOutline.mainObjective)
+                    .padding()
+                HStack {
+                    Text("Reading Due")
+                        .padding()
+                    Text(lessonOutline.readingDue)
+                        .padding()
+                    Text("Assignments Due")
+                        .padding()
+                    NavigationLink(destination: AssignmentOutlineView(assignmentOutlineViewModel: AssignmentOutlineViewModel(text: "", apiService: MockAssignmentAPIService()))) {
+                        Label: do {
+                            Text(lessonOutline.assignmentsDue)
+                        }
+                    }
+                }
+                Text("New Assignments")
+                    .padding()
+                NavigationLink(destination: AssignmentOutlineView(assignmentOutlineViewModel: AssignmentOutlineViewModel(text: "", apiService: MockAssignmentAPIService()))) {
+                    Label: do {
+                        Text(lessonOutline.newAssignments)
+                    }
+                }
                 
             } else {
                 Text("Lesson Outline not found.")
             }
-                    }
+            
+            
+            
+        }
         .padding()
         
         .task {
@@ -95,6 +111,6 @@ struct TodayCalendarTabView: View {
 
 #Preview {
     TodayCalendarTabView(viewModel: TodayCalendarTabViewModel(apiService: MockCalendarAPIService(), lessonOutline: nil
-        )
+                                                             )
     )
 }
