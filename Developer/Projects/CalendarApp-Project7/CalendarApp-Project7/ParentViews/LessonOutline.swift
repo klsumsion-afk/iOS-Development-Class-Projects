@@ -8,7 +8,8 @@
 import Foundation
 
 //This is where our data is stored
-struct LessonOutline: Codable {
+struct LessonOutline: Codable, Identifiable {
+    var id: UUID = UUID()
     var lessonID: String
     var lessonName: String
     var mainObjective: String

@@ -12,8 +12,8 @@ protocol AssignmentOutlineAPIService {
 
 struct AssignmentOutlineViewModel {
     var text: String
-    
     var apiService: AssignmentOutlineAPIService
+    
 }
 
 struct AssignmentOutlineView: View {
@@ -21,6 +21,7 @@ struct AssignmentOutlineView: View {
     
     var body: some View {
         NavigationStack {
+            
             Text(assignmentOutlineViewModel.text)
                 .task {
                     do {

@@ -41,6 +41,8 @@ struct SubmitFeedbackView: View {
                     }
                     .padding()
                 
+                Button("Submit", action: { })
+                
             }
         }
     }

@@ -5,18 +5,6 @@
 import Foundation
 import SwiftUI
 
-//This is the fake API that we are fetching our data from ->
-struct MockCalendarAPIService: CalendarAPIService {
-    func fetchTodayOutline() async throws -> LessonOutline? {
-        let novemberOneNine = LessonOutline(lessonID: "ND04", lessonName: "Lab Day", mainObjective: "Get Stuff Done", readingDue: "Swift Fundamentals 1.8", assignmentsDue: "Generics", newAssignments: "None", dailyCodeChallenge: "'Binary to Decimal' - Type Conversion", wordOfTheDay: "Assembly")
-        return novemberOneNine
-    }
-}
-
-protocol CalendarAPIService {
-    func fetchTodayOutline() async throws -> LessonOutline?
-}
-
 //Brain behind the UI
 @Observable
 class TodayCalendarTabViewModel {
@@ -57,11 +45,10 @@ struct TodayCalendarTabView: View {
                         .padding()
                     Text("Lesson Name")
                         .padding()
-                    NavigationLink(destination: LessonOutlineView(lessonOutlineViewModel: LessonOutlineViewModel(text: "", apiService: MockLessonAPIService()))) {
-                        Label: do {
-                            Text(lessonOutline.lessonName)
-                        }
-                    }
+                    
+                    Text(lessonOutline.lessonName)
+                    
+                    
                 }
                 Text("Main Objective")
                     .padding()
@@ -74,19 +61,19 @@ struct TodayCalendarTabView: View {
                         .padding()
                     Text("Assignments Due")
                         .padding()
-                    NavigationLink(destination: AssignmentOutlineView(assignmentOutlineViewModel: AssignmentOutlineViewModel(text: "", apiService: MockAssignmentAPIService()))) {
-                        Label: do {
-                            Text(lessonOutline.assignmentsDue)
-                        }
-                    }
+                    
+                    
+                    Text(lessonOutline.assignmentsDue)
+                    
+                    
                 }
                 Text("New Assignments")
                     .padding()
-                NavigationLink(destination: AssignmentOutlineView(assignmentOutlineViewModel: AssignmentOutlineViewModel(text: "", apiService: MockAssignmentAPIService()))) {
-                    Label: do {
-                        Text(lessonOutline.newAssignments)
-                    }
-                }
+                
+                
+                Text(lessonOutline.newAssignments)
+                
+                
                 
             } else {
                 Text("Lesson Outline not found.")
@@ -99,8 +86,8 @@ struct TodayCalendarTabView: View {
         
         .task {
             do {
-                let string = try await viewModel.apiService.fetchTodayOutline()
-                viewModel.lessonOutline = string
+                let lessonOutline = try await viewModel.apiService.fetchTodayOutline()
+                viewModel.lessonOutline = lessonOutline
             } catch {
                 print(error)
             }
