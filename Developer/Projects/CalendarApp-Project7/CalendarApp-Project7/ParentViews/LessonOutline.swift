@@ -18,7 +18,7 @@ struct LessonOutline: Codable {
     var dailyCodeChallenge: String
     var wordOfTheDay: String
     
-    init(lessonID: String, lessonName: String, mainObjective: String, readingDue: String, assignmentsDue: String, newAssignments: String, dailyCodeChallenge: String, wordOfTheDay: String) {
+    init(lessonID: String, lessonName: String, mainObjective: String = "", readingDue: String = "", assignmentsDue: String, newAssignments: String = "", dailyCodeChallenge: String = "", wordOfTheDay: String = "") {
         self.lessonID = lessonID
         self.lessonName = lessonName
         self.mainObjective = mainObjective

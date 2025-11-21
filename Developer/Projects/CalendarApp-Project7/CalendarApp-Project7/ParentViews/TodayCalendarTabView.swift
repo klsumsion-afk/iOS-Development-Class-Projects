@@ -23,7 +23,7 @@ class TodayCalendarTabViewModel {
     var apiService: CalendarAPIService
     var lessonOutline: LessonOutline?
     
-    init(apiService: CalendarAPIService, lessonOutline: LessonOutline) {
+    init(apiService: CalendarAPIService, lessonOutline: LessonOutline?) {
         self.apiService = apiService
         self.lessonOutline = lessonOutline
     }
@@ -36,42 +36,48 @@ struct TodayCalendarTabView: View {
     var body: some View {
 //        Add ScrollView Later
         VStack {
-            HStack {
-//                What is the best way to unwrap all of these optionals because I don't think ?? is the best solution?
-                Text("Daily Code Challenge")
-                    .padding()
-                Text(viewModel.lessonOutline?.dailyCodeChallenge ?? <#default value#>)
-                    .padding()
-                Text("Word of the Day")
-                    .padding()
-                Text(viewModel.lessonOutline?.wordOfTheDay ?? <#default value#>)
+            if let lessonOutline = viewModel.lessonOutline {
+//                Need to figure how to incorparate the hstacks that makes the code happy
+                    ForEach(lessonOutline, id: \.self) {lessonOutline in
+                        HStack {
+                            Text("Daily Code Challenge")
+                                .padding()
+                            Text(viewModel.lessonOutline.dailyCodeChallenge)
+                                .padding()
+                            Text("Word of the Day")
+                                .padding()
+                            Text(viewModel.lessonOutline.wordOfTheDay)
+                        }
+                        HStack {
+                            Text("Lesson ID")
+                                .padding()
+                            Text(viewModel.lessonOutline.lessonID)
+                                .padding()
+                            Text("Lesson Name")
+                                .padding()
+                            Text(viewModel.lessonOutline.lessonName)
+                        }
+                        Text("Main Objective")
+                            .padding()
+                        Text(viewModel.lessonOutline.mainObjective)
+                            .padding()
+                        HStack {
+                            Text("Reading Due")
+                                .padding()
+                            Text(viewModel.lessonOutline.readingDue)
+                                .padding()
+                            Text("Assignments Due")
+                                .padding()
+                            Text(viewModel.lessonOutline.assignmentsDue)
+                        }
+                        Text("New Assignments")
+                            .padding()
+                        Text(viewModel.lessonOutline.newAssignments)
+                    }
+                
+            } else {
+                Text("Lesson Outline not found.")
             }
-            HStack {
-                Text("Lesson ID")
-                    .padding()
-                Text(viewModel.lessonOutline?.lessonID ?? <#default value#>)
-                    .padding()
-                Text("Lesson Name")
-                    .padding()
-                Text(viewModel.lessonOutline?.lessonName ?? <#default value#>)
-            }
-            Text("Main Objective")
-                .padding()
-            Text(viewModel.lessonOutline?.mainObjective ?? <#default value#>)
-                .padding()
-            HStack {
-                Text("Reading Due")
-                    .padding()
-                Text(viewModel.lessonOutline?.readingDue ?? <#default value#>)
-                    .padding()
-                Text("Assignments Due")
-                    .padding()
-                Text(viewModel.lessonOutline?.assignmentsDue ?? <#default value#>)
-            }
-            Text("New Assignments")
-                .padding()
-            Text(viewModel.lessonOutline?.newAssignments ?? <#default value#>)
-            
                     }
         .padding()
         
@@ -89,7 +95,6 @@ struct TodayCalendarTabView: View {
 
 #Preview {
     TodayCalendarTabView(viewModel: TodayCalendarTabViewModel(apiService: MockCalendarAPIService(), lessonOutline: nil
-//                                                              Why is the nil broken?
         )
     )
 }
